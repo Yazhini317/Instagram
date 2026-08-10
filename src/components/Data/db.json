@@ -1,0 +1,299 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "user": {
+        "username": "Maa_ran",
+        "name": "maranyal",
+        "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": true
+      },
+      "postImage": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Beautiful day ✨",
+      "likes": 125,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 2,
+      "repostCount": 18,
+      "savedCount": 32,
+      "comments": [
+        {
+          "id": 1,
+          "username": "anu",
+          "comment": "Beautiful ❤️"
+        },
+        {
+          "id": 2,
+          "username": "priya",
+          "comment": "Amazing!"
+        }
+      ],
+      "timestamp": "2 hours ago"
+    },
+    {
+      "id": 2,
+      "user": {
+        "username": "travel_diary",
+        "name": "Travel Diary",
+        "profileImage": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Exploring new places 🌍",
+      "likes": 342,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "rahul",
+          "comment": "Wow! 😍"
+        }
+      ],
+      "timestamp": "5 hours ago"
+    },
+    {
+      "id": 3,
+      "user": {
+        "username": "foodie_world",
+        "name": "Foodie World",
+        "profileImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop",
+        "accountType": "private",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Good food, good mood 🍕❤️",
+      "likes": 89,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "sneha",
+          "comment": "Looks delicious! 😋"
+        }
+      ],
+      "timestamp": "1 day ago"
+    },
+    {
+      "id": 4,
+      "user": {
+        "username": "nature_lovers",
+        "name": "Nature Lovers",
+        "profileImage": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=150&h=150&fit=crop",
+        "accountType": "private",
+        "following": true
+      },
+      "postImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Peace begins with nature 🌿",
+      "likes": 560,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 2,
+      "repostCount": 74,
+      "savedCount": 128,
+      "comments": [
+        {
+          "id": 1,
+          "username": "karthik",
+          "comment": "So peaceful 🌿"
+        },
+        {
+          "id": 2,
+          "username": "meena",
+          "comment": "Beautiful view!"
+        }
+      ],
+      "timestamp": "1 day ago"
+    },
+    {
+      "id": 5,
+      "user": {
+        "username": "fashion_daily",
+        "name": "Fashion Daily",
+        "profileImage": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Simple style, big confidence ✨",
+      "likes": 231,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "divya",
+          "comment": "Love this look ❤️"
+        }
+      ],
+      "timestamp": "2 days ago"
+    },
+    {
+      "id": 6,
+      "user": {
+        "username": "photography_world",
+        "name": "Photography World",
+        "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": true
+      },
+      "postImage": "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Captured at the perfect moment 📸",
+      "likes": 478,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 2,
+      "repostCount": 56,
+      "savedCount": 91,
+      "comments": [
+        {
+          "id": 1,
+          "username": "arun",
+          "comment": "Great shot! 📸"
+        },
+        {
+          "id": 2,
+          "username": "vishnu",
+          "comment": "Amazing photography!"
+        }
+      ],
+      "timestamp": "2 days ago"
+    },
+    {
+      "id": 7,
+      "user": {
+        "username": "fitness_zone",
+        "name": "Fitness Zone",
+        "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
+        "accountType": "private",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Keep going. Don't give up! 💪",
+      "likes": 315,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "vijay",
+          "comment": "Motivation! 🔥"
+        }
+      ],
+      "timestamp": "3 days ago"
+    },
+    {
+      "id": 8,
+      "user": {
+        "username": "coffee_lovers",
+        "name": "Coffee Lovers",
+        "profileImage": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": true
+      },
+      "postImage": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Coffee and calm mornings ☕",
+      "likes": 156,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 1,
+      "comments": [
+        {
+          "id": 1,
+          "username": "keerthi",
+          "comment": "My kind of morning ☕"
+        }
+      ],
+      "timestamp": "3 days ago"
+    },
+    {
+      "id": 9,
+      "user": {
+        "username": "music_vibes",
+        "name": "Music Vibes",
+        "profileImage": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop",
+        "accountType": "private",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Music makes everything better 🎵",
+      "likes": 692,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 2,
+      "comments": [
+        {
+          "id": 1,
+          "username": "akash",
+          "comment": "This vibe! 🎶"
+        },
+        {
+          "id": 2,
+          "username": "nisha",
+          "comment": "Love this ❤️"
+        }
+      ],
+      "timestamp": "4 days ago"
+    },
+    {
+      "id": 10,
+      "user": {
+        "username": "sunset_stories",
+        "name": "Sunset Stories",
+        "profileImage": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": false
+      },
+      "postImage": "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?w=600&h=600&fit=crop",
+      "postType": "image",
+      "caption": "Chasing sunsets 🌅",
+      "likes": 845,
+      "likedByMe": false,
+      "savedByMe": false,
+      "commentsCount": 2,
+      "repostCount": 103,
+      "savedCount": 217,
+      "comments": [
+        {
+          "id": 1,
+          "username": "rohan",
+          "comment": "What a view! 😍"
+        },
+        {
+          "id": 2,
+          "username": "swathi",
+          "comment": "Absolutely beautiful!"
+        }
+      ],
+      "timestamp": "5 days ago"
+    }
+  ],
+  "suggestions":[
+    {
+      "id": 1,
+      "user": {
+        "username": "ya_zh_u",
+        "name": "yazhini",
+        "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+        "accountType": "public",
+        "following": true
+      }
+    }
+  ]
+}
