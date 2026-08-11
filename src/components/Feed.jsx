@@ -12,7 +12,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 
 function Feed() {
   const { post, setPost, error, setError, isLoading } = useFetch(
-    "http://localhost:5000/posts",
+    "https://instagramnpm.onrender.com",
   );
   const [showLeft, setLeft] = useState(false);
   const [showRight, setRight] = useState(true);
@@ -56,19 +56,19 @@ function Feed() {
 
   return (
     <>
-      <div className=" ms-5 p-3 ">
+      <div className="p-3 story">
         {/* ONLY STORIES SCROLL */}
-        <div ref={storyRef} className="story d-flex p-2">
+        <div ref={storyRef} className="d-flex story-container">
           {post.map((posts) => {
             return (
-              <div className="story-item  ms-3 ps-3" key={posts.id}>
-                {posts.user.profileImage && (
+              <div className="story-item ms-1" key={posts.id}>
+                
                   <img
                     src={posts.user.profileImage}
                     className="story-loader rounded-circle"
                     alt=""
                   />
-                )}
+                
               </div>
             );
           })}
@@ -101,8 +101,8 @@ function Feed() {
                   className="rounded-circle"
                   alt=""
                 />
-                <span className="">
-                  {posts.user.username} <GoDotFill size={10} />{" "}
+                <span  style={{fontSize:"12px"}} className="">
+                  {posts.user.username} <GoDotFill size={6} />{" "}
                   {posts.timestamp}
                   {posts.user.following ? (
                     <p className="following">Following</p>
@@ -114,24 +114,24 @@ function Feed() {
                 </span>
                 {!posts.user.following && (
                   <div className="post-follow d-flex ms-auto">
-                    <Button className="ms-4">Follow</Button>
+                    <Button style={{fontSize:'10px'}} className="pe-2 ps-2">Follow</Button>
                   </div>
                 )}
-                <div className="ms-auto">{<IoIosMore size={40} />}</div>
+                <div className="ms-auto">{<IoIosMore size={25} />}</div>
               </div>
               <img src={posts.postImage} className="post " alt="" />
 
               {/* Icons*/}
               <div className="d-flex  post align-items-center justify-content-start">
                 <div className="icon-box d-flex   align-items-center">
-                  <PiHeartLight className="icons" size={38} />
+                  <PiHeartLight className="icons" size={26} />
                   {posts.likes}
                   <span className="pop-icons">Likes</span>
                 </div>
                 <div className="icon-box  align-items-center d-flex">
                   <i
                     className="bi bi-chat  icons"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "25px" }}
                   ></i>
                   {posts.commentsCount}
                   <span className="pop-icons">Comments</span>
@@ -139,26 +139,27 @@ function Feed() {
                 <div className="icon-box d-flex align-items-center ">
                   <i
                     className="bi bi-repeat me-1 p-1 mb-1 icons"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "25px" }}
                   ></i>
                   {posts.repostCount}
                   <span className="pop-icons">Repost</span>
                 </div>
                 <div className="icon-box d-flex align-items-center mt-1">
-                  <RiSendInsLine className="icons mb-1" size={28} />
+                  <RiSendInsLine className="icons mb-1" size={22} />
                   <span className="pop-icons">Send</span>
                 </div>
                 <div className="icon-box d-flex ms-auto">
                   <i
                     className="bi bi-bookmark ms-auto icons"
-                    style={{ fontSize: "30px" }}
+                    style={{ fontSize: "21px" }}
                   ></i>
                   <span className="pop-icons">Save</span>
                 </div>
               </div>
-              <div className="post d-flex align-items-center gap-2  ">
-                <h6>{posts.user.username}</h6>
-                <p className="mb-2">{posts.caption}</p>
+              <div className="post mb-3 " style={{fontSize:"13px"}}>
+                <span style={{fontSize:"13px",fontWeight:"600",marginRight:"5px"}} className=""><span style={{fontWeight:'bold'}}>{posts.user.username}</span>
+               <span className="ms-2">{posts.caption}</span>
+                </span>
               </div>
             </div>
           );

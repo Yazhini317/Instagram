@@ -26,7 +26,7 @@ function SideBar() {
   return (
     <>
       <Navbar
-        className=" sidebar w-20 position-fixed"
+        className=" sidebar position-fixed"
         onMouseEnter={() => {
           setHover(true);
         }}
@@ -36,17 +36,17 @@ function SideBar() {
       >
         <Container
           fluid
-          className="container  d-flex flex-column align-items-start  p-4 vh-100"
+          className="container d-flex flex-column align-items-start vh-100"
         >
           {/* {Top page} */}
-          <Navbar.Brand className="navbar-brand">
+          <Navbar.Brand className="navbar-brand ms-2 mb-2">
             {" "}
-            <FaInstagram size={28} />
+            <FaInstagram size={25} />
           </Navbar.Brand>
 
           {/* middle*/}
 
-          <Nav className=" nav flex-column">
+          <Nav className="nav flex-column justify-content-evenly 100vh">
             <Nav.Link className="text-dark" onClick={() => setClick("Home")}>
               {click === "Home" ? (
                 <GoHomeFill size={25} className="me-4 mb-2" />
@@ -57,20 +57,20 @@ function SideBar() {
               <span className="popup-text">Home</span>
             </Nav.Link>
             <Nav.Link className="text-dark">
-              <FiSearch size={30} className="me-3 mb-2" />{" "}
+              <FiSearch size={25} className="me-3 mb-2" />{" "}
               {window.innerWidth > 1000 && Hover && "Search"}
               <span className="popup-text">Search</span>
             </Nav.Link>
             <Nav.Link className="text-dark" onClick={() => setClick(true)}>
-              <BsPlusLg size={30} className="me-3 mb-2" />{" "}
+              <BsPlusLg size={25} className="me-3 mb-2" />{" "}
               {window.innerWidth > 1000 && Hover && "Create"}
               <span className="popup-text">Reels</span>
             </Nav.Link>
             <Nav.Link className="text-dark" onClick={() => setClick("Reels")}>
               {click === "Reels" ? (
-                <MdSmartDisplay size={30} className="me-3 mb-2" />
+                <MdSmartDisplay size={25} className="me-3 mb-2" />
               ) : (
-                <MdOutlineSmartDisplay size={30} className="me-3 mb-2" />
+                <MdOutlineSmartDisplay size={25} className="me-3 mb-2" />
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Reels"}
               <span className="popup-text">Create</span>
@@ -80,28 +80,28 @@ function SideBar() {
               onClick={() => setClick("Messages")}
             >
               {click === "Messages" ? (
-                <RiSendInsFill size={30} className="me-3 mb-2" />
+                <RiSendInsFill size={25} className="me-3 mb-2" />
               ) : (
-                <RiSendInsLine size={30} className="me-3 mb-2" />
+                <RiSendInsLine size={25} className="me-3 mb-2" />
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Messages"}
               <span className="popup-text">Messages</span>
-            </Nav.Link>
-            <Nav.Link className="text-dark">
-              <img src={profile} className="me-3 mb-2 w-15 rounded-circle" />
-              {window.innerWidth > 1000 && Hover && "Profile"}
-              <span className="popup-text">Profile</span>
             </Nav.Link>
             <Nav.Link
               className="text-dark heart"
               onClick={() => setClick("Notifications")}
             >
               {click === "Notifications" ? (
-                <FaHeart size={30} className="me-3 mb-2" />
+                <FaHeart size={25} className="me-3 mb-2" />
               ) : (
-                <FaRegHeart size={30} className="me-3 mb-2" />
+                <FaRegHeart size={25} className="me-3 mb-2" />
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Notifications"}
+            </Nav.Link>
+            <Nav.Link className="text-dark">
+              <img src={profile} className="me-3 mb-2 w-15 rounded-circle" />
+              {window.innerWidth > 1000 && Hover && "Profile"}
+              <span className="popup-text">Profile</span>
             </Nav.Link>
           </Nav>
 
@@ -111,7 +111,7 @@ function SideBar() {
             <NavDropdown
               title={
                 <>
-                  <IoIosMenu className="me-2  mb-2 bottom-link" size={38} />
+                  <IoIosMenu className="me-2  mb-2 bottom-link" size={25} />
                   {Hover && "More"}
                 </>
               }
@@ -119,7 +119,7 @@ function SideBar() {
             ></NavDropdown>
 
             <Nav.Link className="text-dark me-2">
-              <SiThreads size={30} className="me-2 mb-2 bottom-link" />{" "}
+              <SiThreads size={25} className="me-2 mb-2 bottom-link" />{" "}
               {Hover && "Threads"}
             </Nav.Link>
           </Nav>

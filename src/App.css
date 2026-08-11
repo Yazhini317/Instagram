@@ -7,8 +7,8 @@
 }
 
 .post {
-    display: flex;
-  width: 500px;
+  display: flex;
+  width: 300px;
   min-width:300px;
   flex-shrink: 0;
   
@@ -18,11 +18,12 @@
     object-fit: cover;
     width: 40px;
     min-width: 40px;
+    margin-bottom: 10px;
     flex-shrink: 0;
 
 }
 .post-follow {
-  width: 10px;
+  width: 5px;
 }
 .icons {
   margin: 5px;
@@ -55,18 +56,20 @@
   margin-top: 60px;
   margin-left: 10px;
   position: absolute;
-  /* padding-left: 30px; */
+  padding-left: 30px;
 }
 .story-item {
-  display: flex;
-  width: 80px;
+  display: flex; 
+  width: 70px;
   min-width: 70px;
   flex-shrink: 0;
-  
 }
 
 .story-loader {
+  display: flex;
   width: 70px;
+  min-width: 70px;
+  flex-shrink: 0;
   height: 70px;
   padding: 3px;
   border-radius: 50%;
@@ -79,23 +82,27 @@
     #4f5bd5
   );
 }
-.story-container {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
 .story {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  padding: 15px;
+}
+
+.story-container {
   display: flex;
   width: 100%;
+  min-width: 100%;
   overflow-x: hidden;
+  flex-shrink: 0;
   
 }
 
 .story-arrow,
 .story-arrow-left {
   position: absolute;
-  top: 10%;
-  transform: translateY(-120%);
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 50%;
   font-size: 15px;
   border: none;
@@ -104,12 +111,15 @@
   display: flex;
   align-items: center;
   z-index: 100;
+  justify-content: center;
 }
 .story-arrow {
-  right: 750px;
+  right: 5px;
+ 
 }
 .story-arrow-left {
-  left: 370px;
+  left: 5px;
+ 
 }
 
 
@@ -127,14 +137,13 @@
     
 }
 .sugtcontainer{
-    width: 400px;
+    width: 300px;
     font-size: 15px;
+   
 }
 .sugt-container h6 {
     font-size: 16px;
 }
-
-
 .username{
     font-size: 13px;
     padding: 2px;
