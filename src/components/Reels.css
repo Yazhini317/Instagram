@@ -1,0 +1,38 @@
+.reelcontainer{
+overflow-y: auto;    
+   scroll-behavior: smooth;
+   height: 100vh;
+}
+.reels{
+   position: relative;
+   left: 40%;
+   height: 100vh;
+   
+   
+  
+}
+.side{
+    position: absolute;
+    bottom: 5%;
+    right:  75%;
+    margin-right: 10px;;
+  
+}
+.scrolls{
+    position: fixed;
+    right: 10%;
+    
+}
+
+.image{
+    width: 35px;
+    height: 35px !important;
+    object-fit: cover;
+    margin-right: 10px !important;
+}
+.reelbutton{
+    display: flex;
+    position: absolute;
+    /* left: 110%; */
+   
+}

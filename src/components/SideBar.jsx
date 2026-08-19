@@ -17,12 +17,17 @@ import { GoHomeFill } from "react-icons/go";
 import { MdSmartDisplay } from "react-icons/md";
 import { RiSendInsFill } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
-import '../App.css'
+import "../App.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Paper, Typography } from "@mui/material";
 
-function SideBar() {
+function SideBar({ user }) {
   const [Hover, setHover] = useState(false);
   const [click, setClick] = useState("");
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isProfile = location.pathname.startsWith(`/${user}`);
   return (
     <>
       <Navbar
@@ -39,15 +44,34 @@ function SideBar() {
           className="container d-flex flex-column align-items-start vh-100"
         >
           {/* {Top page} */}
-          <Navbar.Brand className="navbar-brand ms-2 mb-2">
+          {/* {
+             window.innerWidth > 1000 && !isProfile &&  (
+
+          <Navbar.Brand className="navbar-brand ms-2 mb-2 profile-desktop-brand">
             {" "}
+            <FaInstagram size={25} />
+          </Navbar.Brand>
+
+            )
+          } */}
+          <Navbar.Brand
+            className={`navbar-brand ms-2 mb-2 ${
+              isProfile ? "profile-desktop-brand" : ""
+            }`}
+          >
             <FaInstagram size={25} />
           </Navbar.Brand>
 
           {/* middle*/}
 
           <Nav className="nav flex-column justify-content-evenly 100vh">
-            <Nav.Link className="text-dark" onClick={() => setClick("Home")}>
+            <Nav.Link
+              className="text-dark"
+              onClick={() => {
+                setClick("Home");
+                navigate("/");
+              }}
+            >
               {click === "Home" ? (
                 <GoHomeFill size={25} className="me-4 mb-2" />
               ) : (
@@ -57,38 +81,57 @@ function SideBar() {
               <span className="popup-text">Home</span>
             </Nav.Link>
             <Nav.Link className="text-dark">
-              <FiSearch size={25} className="me-3 mb-2" />{" "}
+              <FiSearch size={25} className="me-3 mb-2"  onClick={()=>{navigate('/Search')}}/>{" "}
               {window.innerWidth > 1000 && Hover && "Search"}
               <span className="popup-text">Search</span>
             </Nav.Link>
-            <Nav.Link className="text-dark" onClick={() => setClick(true)}>
+            <Nav.Link className="text-dark" onClick={() =>{ 
+              
+              navigate('/NewPost')
+              }}>
               <BsPlusLg size={25} className="me-3 mb-2" />{" "}
               {window.innerWidth > 1000 && Hover && "Create"}
-              <span className="popup-text">Reels</span>
+              <span className="popup-text">Create</span>
             </Nav.Link>
+            {/* <NavDropdown
+              className="sidebar-dropdown text-dark"
+              title={
+                <>
+                  <BsPlusLg size={25} className="me-3 mb-2" />
+                  {window.innerWidth > 1000 && Hover && "Create"}
+                  <span className="popup-text">Create</span>
+                </>
+              }
+            >
+              <NavDropdown.Item onClick={()=>{navigate('/NewPost')}}>Public Post</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>{navigate('/PrivatePost')}}>Private Post</NavDropdown.Item>
+            </NavDropdown> */}
+
             <Nav.Link className="text-dark" onClick={() => setClick("Reels")}>
               {click === "Reels" ? (
-                <MdSmartDisplay size={25} className="me-3 mb-2" />
+                <MdSmartDisplay size={25} className="me-3 mb-2"  />
               ) : (
-                <MdOutlineSmartDisplay size={25} className="me-3 mb-2" />
+                <MdOutlineSmartDisplay size={25} className="me-3 mb-2" onClick={()=>{navigate('/Reels')}} />
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Reels"}
-              <span className="popup-text">Create</span>
+              <span className="popup-text">Reels</span>
             </Nav.Link>
             <Nav.Link
               className="text-dark"
               onClick={() => setClick("Messages")}
             >
               {click === "Messages" ? (
-                <RiSendInsFill size={25} className="me-3 mb-2" />
+                <RiSendInsFill size={25} className="me-3 mb-2" onClick={()=>{navigate('/Message')}} />
               ) : (
-                <RiSendInsLine size={25} className="me-3 mb-2" />
+                <RiSendInsLine size={25} className="me-3 mb-2" onClick={()=>{navigate('/Message')}} />
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Messages"}
               <span className="popup-text">Messages</span>
             </Nav.Link>
+            {/* {
+             window.innerWidth > 1000 && !isProfile && (
             <Nav.Link
-              className="text-dark heart"
+              className="text-dark heart profile-desktop-heart"
               onClick={() => setClick("Notifications")}
             >
               {click === "Notifications" ? (
@@ -98,7 +141,25 @@ function SideBar() {
               )}{" "}
               {window.innerWidth > 1000 && Hover && "Notifications"}
             </Nav.Link>
-            <Nav.Link className="text-dark">
+
+              )
+            } */}
+
+            <Nav.Link
+              className={`text-dark heart ${
+                isProfile ? "profile-desktop-heart" : ""
+              }`}
+              onClick={() => setClick("Notifications")}
+            >
+              {click === "Notifications" ? (
+                <FaHeart size={25} className="me-3 mb-2" />
+              ) : (
+                <FaRegHeart size={25} className="me-3 mb-2" />
+              )}
+
+              {window.innerWidth > 1000 && Hover && "Notifications"}
+            </Nav.Link>
+            <Nav.Link as={Link} to={`/${user}`} className="text-dark">
               <img src={profile} className="me-3 mb-2 w-15 rounded-circle" />
               {window.innerWidth > 1000 && Hover && "Profile"}
               <span className="popup-text">Profile</span>
@@ -125,6 +186,34 @@ function SideBar() {
           </Nav>
         </Container>
       </Navbar>
+      {window.innerWidth > 1000 ? (
+        <Paper
+          elevation={15}
+          style={{ borderRadius: "30px", width: "200px" }}
+          className="paper"
+        >
+          <Typography
+            variant="h6"
+            className="d-flex align-items-center gap-3 fs-6 fw-bold"
+          >
+            <RiSendInsLine size={25} />
+            Messages
+          </Typography>
+        </Paper>
+      ) : (
+        <Paper
+          elevation={15}
+          style={{ borderRadius: "50%", width: "50px", height: "50px" }}
+          className="paper"
+        >
+          <Typography
+            variant="h6"
+            className="d-flex align-items-center justify-content-center mt-1 fs-7 fw-bold"
+          >
+            <RiSendInsLine size={25} />
+          </Typography>
+        </Paper>
+      )}
     </>
   );
 }

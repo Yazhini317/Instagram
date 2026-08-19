@@ -1,28 +1,36 @@
-import React from 'react'
-import SideBar from './components/SideBar'
-import Feed from './components/Feed'
-import Suggestions from './components/Suggestions'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import React, { useState } from "react";
+import SideBar from "./components/SideBar";
+
+
+import useFetch from "./components/useFetch";
+import { Outlet } from "react-router-dom";
+
 function App() {
+  
+ const {post}=useFetch("http://localhost:5000/suggestions")
+ const user=post.map((users)=>{
+ return users.user.username;
+ })
+ if(!localStorage.getItem('saved')){
+  localStorage.setItem('saved',JSON.stringify([]))
+ }
   return (
     <>
-   <div className='d-flex vh-100'>
-   <div  className="w-20">
-    <SideBar />
-    </div> 
-   <div className='w-30 feed'>
-   <Feed />
-   </div>
-    <div  className='w-50 suggestions '>
+      <div style={{overflowX:"hidden"}} className="d-flex vh-100">
+        <div className="w-20 ">
+        
+            <SideBar user={user} />
+            <div className="main-content">
+            <Outlet/>
 
-    <Suggestions/>
-    </div>
-
-    </div>
-    
+            </div>
+         
+        </div>
+       
+      </div>
+      
     </>
-  
-  )
+  );
 }
 
-export default App
+export default App;
