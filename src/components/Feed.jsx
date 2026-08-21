@@ -3,56 +3,67 @@ import { GoDotFill } from "react-icons/go";
 import useFetch from "./useFetch";
 import { IoIosMore } from "react-icons/io";
 import { PiHeartFill, PiHeartLight } from "react-icons/pi";
-import { FiMessageCircle } from "react-icons/fi";
-import { BiRepost } from "react-icons/bi";
 import { RiSendInsLine } from "react-icons/ri";
 import { Button } from "react-bootstrap";
-import { IoIosArrowDropright } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { OrbitProgress } from "react-loading-indicators";
 import "./Feed.css";
 import { IoIosClose } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { addSaved, removeSaved } from "./Store/SavedSlice";
-import {FaBookmark} from "react-icons/fa"
-function Feed() {
-  
-  const navigate = useNavigate();
+import { FaBookmark } from "react-icons/fa";
+import { addLike, removeLike } from "./Store/LikedSlice";
+import { Nav, NavDropdown } from "react-bootstrap";
 
-  const { post, setPost, error, setError, isLoading } = useFetch(
-    "http://localhost:5000/posts",
-  );
+function Feed() {
+  const navigate = useNavigate();
+const [menuOpen,setMenuOpen]=useState(null)
+  const [story, setStory] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/stories")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Data not found");
+        } else {
+          return res.json();
+        }
+      })
+      .then((data) => setStory(data))
+      .catch((error) => console.log(error.message));
+  }, []);
+
+  const { post } = useFetch("http://localhost:5000/posts");
+
   const [showLeft, setLeft] = useState(false);
   const [showRight, setRight] = useState(true);
 
-  {
-    /* Like icon */
-  }
-  const [repost,setRepost]=useState(false)
-  const [Liked, setLiked] = useState(false);
-  const [heartCount, setHeartCount] = useState(0);
-  const [repostedCount,setReposted]=useState(0);
-  const handleHeart = (id) => {
-    setClick(id);
-    setHeartCount((prev) => prev + 1);
-    if (Liked) {
-      setLiked(false);
+  
+  const checkLiked = useSelector((state) => state.likedSlice);
+
+  const dispatch = useDispatch();
+
+  const handleHeart = (posts) => {
+    const checkLikedstory = checkLiked.some(
+      (checkLike) => checkLike.id === posts.id
+    );
+
+    if (!checkLikedstory) {
+      dispatch(addLike(posts));
     } else {
-      setLiked(true);
+      dispatch(removeLike(posts.id));
     }
   };
-  const handleRepost = (id) => {
+  
+  const [rePost, setRepost] = useState(false);
+  const handleRePost = (id) => {
     setClick(id);
-    setReposted((prev) => prev + 1);
-    if (repost) {
+    setRepost(true)
+    if (rePost) {
       setRepost(false);
     } else {
       setRepost(true);
     }
   };
-  {
-    /* Comment icon */
-  }
 
   const [expand, setExpand] = useState(false);
 
@@ -60,30 +71,22 @@ function Feed() {
 
   const checkScroll = () => {
     const element = storyRef.current;
-    if (element.scrollLeft <= 0) {
-      setLeft(false);
-    } else {
-      setLeft(true);
-    }
-    if (element.scrollLeft + element.clientWidth >= element.scrollWidth - 1) {
-      setRight(false);
-    } else {
-      setRight(true);
-    }
+
+    if (!element) return;
+
+    setLeft(element.scrollLeft > 0);
+
+    setRight(
+      element.scrollLeft + element.clientWidth <
+        element.scrollWidth - 1
+    );
   };
 
   const storyScrollRight = () => {
+    if (!storyRef.current) return;
+
     storyRef.current.scrollBy({
-      left: 300,
-      behavior: "smooth",
-    });
-    setTimeout(() => {
-      checkScroll();
-    }, 300);
-  };
-  const storyScrollLeft = () => {
-    storyRef.current.scrollBy({
-      left: -300,
+      left: storyRef.current.clientWidth,
       behavior: "smooth",
     });
 
@@ -91,286 +94,511 @@ function Feed() {
       checkScroll();
     }, 300);
   };
-  useEffect(() => {
-    checkScroll();
-  }, [post]);
+
+  const storyScrollLeft = () => {
+    
+    if (!storyRef.current) return;
+
+    storyRef.current.scrollBy({
+      left: -storyRef.current.clientWidth,
+      behavior: "smooth",
+    });
+
+    setTimeout(checkScroll, 300);
+  };
 
   const [click, setClick] = useState(null);
+
   const handleStoryClick = (id) => {
     setClick(id);
-
-    setTimeout(() => {
-      navigate(`/ViewStory/${id}`);
-    }, 2000);
+    navigate(`/ViewStory/${id}`)
+    // setTimeout(() => {
+    //   navigate(`/ViewStory/${id}`);
+    // }, 2000);
   };
-  const dispatch=useDispatch()
- 
- const checkSaved=useSelector((state)=>state.saved)
- const handleSaved=(posts)=>{
-    setClick(posts.id)
-    
-    const checkSavedPost=checkSaved.some((checkPost)=>checkPost.id === posts.id)
-    
-    if(!checkSavedPost){
-      dispatch(addSaved(posts))
+
+  useEffect(() => {
+    if (story.length > 0) {
+      setTimeout(() => {
+        checkScroll();
+      }, 100);
     }
-    else{
-      dispatch(removeSaved(posts.id))
+  }, [story]);
+
+  useEffect(() => {
+    const element = storyRef.current;
+
+    if (!element) return;
+
+    element.addEventListener("scroll", checkScroll);
+
+    return () => {
+      element.removeEventListener("scroll", checkScroll);
+    };
+  }, [story]);
+
+  const checkSaved = useSelector((state) => state.saved);
+
+  const handleSaved = (posts) => {
+    setClick(posts.id);
+
+    const checkSavedstory = checkSaved.some(
+      (checkstory) => checkstory.id === posts.id
+    );
+
+    if (!checkSavedstory) {
+      dispatch(addSaved(posts));
+    } else {
+      dispatch(removeSaved(posts.id));
     }
-  }
+  };
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/posts/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Data not Found");
+        }
+
+        /*
+          useFetch is providing post data,
+          so reload is used here to show the
+          deleted post removed from the feed.
+        */
+        window.location.reload();
+      })
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <>
       <div className="story smallstory">
+
         {/* ONLY STORIES SCROLL */}
+
         <div ref={storyRef} className="story-container">
-          {post
-            .filter((posts) => posts.user.following)
-            .map((posts) => (
+          {story.map((storys) => (
+            <div
+              className="story-item"
+              key={storys.id}
+              onClick={() => {
+                handleStoryClick(storys.id);
+              }}
+            >
               <div
-                className="story-item"
-                key={posts.id}
-                onClick={() => {
-                  handleStoryClick(posts.id);
-                }}
+                className={
+                  click === storys.id
+                    ? "story-loader story-progress"
+                    : "story-loader"
+                }
               >
-                <div
-                  className={
-                    click === posts.id
-                      ? "story-loader story-progress "
-                      : " story-loader"
-                  }
-                >
-                  <img
-                    src={posts.user.profileImage}
-                    className="story-image"
-                    alt=""
-                  />
-                </div>
+                <img
+                  src={storys.profileImage}
+                  className="story-image"
+                 
+                  alt=""
+                />
               </div>
-            ))}
+            </div>
+          ))}
         </div>
 
         {/* LEFT ARROW */}
+
         {showLeft && (
-          <button className="story-arrow-left" onClick={storyScrollLeft}>
+          <button
+            className="story-arrow-left"
+            onClick={()=>{
+             
+              storyScrollLeft()}}
+          >
             <i className="bi bi-chevron-left"></i>
           </button>
         )}
 
         {/* RIGHT ARROW */}
+
         {showRight && (
-          <button className="story-arrow" onClick={storyScrollRight}>
+          <button
+            className="story-arrow"
+            onClick={()=>{
+              
+              storyScrollRight()
+            }
+          }
+          >
             <i className="bi bi-chevron-right"></i>
           </button>
         )}
       </div>
 
-      {/*  POST  */}
+      {/* POSTS */}
 
       <div className="flex-column">
         {post.map((posts) => {
           return (
             <div
               key={posts.id}
-              className="d-flex flex-column align-items-center p-3 ms-3 gap-2 postContainer"
+              className="d-flex flex-column align-items-center p-3 ms-3 gap-2 storyContainer"
             >
-              <div className="d-flex post gap-2 align-items-center">
+              <div className="d-flex story gap-2 align-items-center">
+
                 <img
                   src={posts.user.profileImage}
-                  className="rounded-circle"
+                  className="rounded-circle post-profile"
+              
                   alt=""
                 />
-                <span style={{ fontSize: "12px" }} className="">
-                  {posts.user.username} <GoDotFill size={6} /> {posts.timestamp}
+
+                <span
+                  style={{ fontSize: "12px" }}
+                  className="mt-3"
+                >
+                 {posts.user.username}{" "}
+                  <GoDotFill size={6} /> {posts.timestamp}
+
                   {posts.user.following ? (
-                    <p className="following">Following</p>
+                    <p className="following">
+                      Following
+                    </p>
                   ) : (
-                    <p className="following" style={{ fontSize: "smaller" }}>
+                    <p
+                      className="following"
+                      style={{ fontSize: "smaller" }}
+                    >
                       Suggested for you
                     </p>
                   )}
                 </span>
+
                 {!posts.user.following && (
-                  <div className="post-follow d-flex ms-auto">
-                    <Button style={{ fontSize: "10px" }} className="pe-2 ps-2">
+                  <div className="story-follow d-flex ms-auto">
+                    <Button
+                      style={{ fontSize: "10px" }}
+                      className="pe-2 ps-2"
+                    >
                       Follow
                     </Button>
                   </div>
                 )}
-                <div className="ms-auto">{<IoIosMore size={25} />}</div>
-              </div>
-              <img src={posts.postImage} className="post " alt="" />
 
-              {/* Icons*/}
-              <div className="d-flex  post align-items-center justify-content-start ">
+                <Nav className="ms-auto sidebar-dropdown">
+  <NavDropdown
+    title={
+      <IoIosMore
+        size={25}
+        style={{ color: "black" }}
+      />
+    }
+  >
+    <NavDropdown.Item
+      onClick={() => {
+        handleDelete(posts.id);
+      }}
+    >
+      Delete
+    </NavDropdown.Item>
+  </NavDropdown>
+</Nav>
+</div>
+              <img
+                src={posts.postImage}
+                className="post"
+                alt=""
+              />
+
+              {/* Icons */}
+
+              <div className="d-flex story align-items-center justify-content-start">
+
+                {/* LIKE */}
+
                 <div
                   className="icon-box d-flex align-items-center justify-content-center mt-1"
                   style={{ cursor: "pointer" }}
                 >
-                  {click === posts.id && Liked ? (
+                  {checkLiked.some(
+                    (likedstory) =>
+                      likedstory.id === posts.id
+                  ) ? (
                     <div>
                       <PiHeartFill
                         style={{ color: "red" }}
                         className="icons"
                         size={26}
-                        onClick={() => handleHeart(posts.id)}
+                        onClick={() =>
+                          handleHeart(posts)
+                        }
                       />
-                      {Number(posts.likes) + Liked}
+
+                      {Number(posts.likes) + 1}
                     </div>
                   ) : (
                     <div>
                       <PiHeartLight
-                        className="icons "
+                        className="icons"
                         size={26}
-                        onClick={() => handleHeart(posts.id)}
+                        onClick={() =>
+                          handleHeart(posts)
+                        }
                       />
+
                       {posts.likes}
                     </div>
                   )}
 
-                  <span className="pop-icons">Likes</span>
+                  <span className="pop-icons">
+                    Likes
+                  </span>
                 </div>
 
-                {/* Comment icon */}
+                {/* COMMENT MODAL */}
 
-               {/* COMMENT MODAL */}
-{click === posts.id && expand && (
-  <div className="commentExpand">
-    
-    <div className="commentModal">
+                {click === posts.id && expand && (
+                  <div className="commentExpand">
 
-      {/* LEFT - POST IMAGE */}
-      <div className="commentPost">
-        <img src={posts.postImage} alt="" />
-      </div>
+                    <div className="commentModal">
 
-      {/* RIGHT - COMMENTS */}
-      <div className="comment">
+                      {/* LEFT - POST IMAGE */}
 
-        <div className="commentHeader pt-2 d-flex gap-1  justify-content-start ps-2 ">
-          <img
-                  src={posts.user.profileImage}
-                  className="rounded-circle"
-                  alt=""
-                /><span>
-          <b className="ps-2 commentHeadername" style={{fontSize:"13px"}}>{posts.user.username}</b></span>
-          <IoIosClose size={22} style={{cursor:"pointer"}} className="ms-auto" onMouseDown={()=>{setExpand(false)}} onClick={()=>{setExpand(false)}}/>
-        </div>
+                      <div className="commentPost">
+                        <img
+                          src={posts.postImage}
+                          alt=""
+                        />
+                      </div>
 
-        <div className="commentBody p-3 pt-2 ">
-         <img
-                  src={posts.user.profileImage}
-                  className="rounded-circle "
-                 
-                />
-    <span><b className="ps-2 " style={{fontSize:"13px"}}>{posts.user.username}</b>{" "}{posts.caption}
-    <p style={{fontSize:"10px",marginLeft:"50px",marginBottom:"10px",paddingBottom:"10px"}}>{posts.timestamp}</p>
-    </span>
-      
-       {posts.comments?.map((comment) => (
-  <div
-    key={comment.id}
-    className="d-flex align-items-start mb-3"
-  >
-    <img
-      src={comment.profileImage}
-      className="rounded-circle"
-      alt=""
-    />
+                      {/* RIGHT - COMMENTS */}
 
-    <span>
-      <b className="ps-2" style={{ fontSize: "13px" }}>
-        {comment.username}
-      </b>{" "}
-      {comment.comment}
-    </span>
-  </div>
-))}
-        
-       
-        </div>
+                      <div className="comment">
 
-        <div className="commentBottom mb-3 ps-4">
-          <input
-            type="text"
-            placeholder="Add a comment..."
-          />
-          <button>Post</button>
-        </div>
+                        <div className="commentHeader pt-2 d-flex gap-1 justify-content-start ps-2">
 
-      </div>
+                          <img
+                            src={posts.user.profileImage}
+                            className="rounded-circle"
+                            alt=""
+                          />
 
-    </div>
+                          <span>
+                            <b
+                              className="ps-2 commentHeadername"
+                              style={{
+                                fontSize: "13px",
+                              }}
+                            >
+                              {posts.user.username}
+                            </b>
+                          </span>
 
-  </div>
-)}
+                          <IoIosClose
+                            size={22}
+                            style={{ cursor: "pointer" }}
+                            className="ms-auto"
+                            onMouseDown={() => {
+                              setExpand(false);
+                            }}
+                            onClick={() => {
+                              setExpand(false);
+                            }}
+                          />
 
-                <div className="icon-box  align-items-center d-flex">
+                        </div>
+
+                        <div className="commentBody p-3 pt-2">
+
+                          <img
+                            src={posts.user.profileImage}
+                            className="rounded-circle"
+                            alt=""
+                          />
+
+                          <span>
+                            <b
+                              className="ps-2"
+                              style={{
+                                fontSize: "13px",
+                              }}
+                            >
+                              {posts.user.username}
+                            </b>{" "}
+                            {posts.caption}
+
+                            <p
+                              style={{
+                                fontSize: "10px",
+                                marginLeft: "50px",
+                                marginBottom: "10px",
+                                paddingBottom: "10px",
+                              }}
+                            >
+                              {posts.timestamp}
+                            </p>
+                          </span>
+
+                          {posts.comments?.map(
+                            (comment) => (
+                              <div
+                                key={comment.id}
+                                className="d-flex align-items-start mb-3"
+                              >
+                                <img
+                                  src={comment.profileImage}
+                                  className="rounded-circle"
+                                  alt=""
+                                />
+
+                                <span>
+                                  <b
+                                    className="ps-2"
+                                    style={{
+                                      fontSize: "13px",
+                                    }}
+                                  >
+                                    {comment.username}
+                                  </b>{" "}
+                                  {comment.comment}
+                                </span>
+                              </div>
+                            )
+                          )}
+
+                        </div>
+
+                        <div className="commentBottom mb-3 ps-4">
+
+                          <input
+                            type="text"
+                            placeholder="Add a comment..."
+                          />
+
+                          <button>
+                            Post
+                          </button>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* COMMENT */}
+
+                <div className="icon-box align-items-center d-flex">
+
                   <i
-                    className="bi bi-chat  icons"
+                    className="bi bi-chat icons"
                     style={{ fontSize: "25px" }}
                     onClick={() => {
                       setClick(posts.id);
                       setExpand(true);
                     }}
                   ></i>
+
                   {posts.commentsCount}
-                  <span className="pop-icons">Comments</span>
+
+                  <span className="pop-icons">
+                    Comments
+                  </span>
+
                 </div>
 
-                <div className="icon-box d-flex align-items-center   ">
-                  {click === posts.id && repost ? (
+                {/* REPOST */}
+
+                <div className="icon-box d-flex align-items-center">
+
+                  {click === posts.id && rePost ? (
                     <div>
-                       <i
-                    className="bi bi-repeat me-1 p-1 mb-2 icons"
-                    style={{ fontSize: "25px"}}
-                    onClick={() => handleRepost(posts.id)}
-                  ></i>{Number(posts.repostCount) + repost}
+
+                      <i
+                        className="bi bi-repeat me-1 p-1 mb-2 icons"
+                        style={{ fontSize: "25px" }}
+                        onClick={() =>
+                          handleRePost(posts.id)
+                        }
+                      ></i>
+
+                      {Number(posts.repostCount) + 1}
+
                     </div>
                   ) : (
-                   <div>
-                       <i
-                    className="bi bi-repeat me-1 p-1 mb-2 icons"
-                    style={{ fontSize: "25px" }}
-                    onClick={() => handleRepost(posts.id)}
-                  ></i>
-                     
-                      {posts.repostCount}
+                    <div>
+
+                      <i
+                        className="bi bi-repeat me-1 p-1 mb-2 icons"
+                        style={{ fontSize: "25px" }}
+                        onClick={() =>
+                          handleRePost(posts.id)
+                        }
+                      ></i>
+
+                      {posts.repostCount || 0}
+
                     </div>
                   )}
 
-                 
-                  {/* <i
-                    className="bi bi-repeat me-1 p-1 mb-1 icons"
-                    style={{ fontSize: "25px" }}
-                  ></i>
-                  {posts.repostCount} */}
-                  <span className="pop-icons">Repost</span>
+                  <span className="pop-icons">
+                    Repost
+                  </span>
+
                 </div>
+
+                {/* SEND */}
+
                 <div className="icon-box d-flex align-items-center mt-1">
-                  <RiSendInsLine className="icons mb-1" size={22} />
-                  <span className="pop-icons">Send</span>
+
+                  <RiSendInsLine
+                    className="icons mb-1"
+                    size={22}
+                  />
+
+                  <span className="pop-icons">
+                    Send
+                  </span>
+
                 </div>
+
+                {/* SAVE */}
+
                 <div className="icon-box d-flex ms-auto">
-                  {
-                    checkSaved.some((savedPost) => savedPost.id === posts.id) ? (
-                      <FaBookmark  style={{ fontSize: "21px" }} className="ms-auto icons" onClick={()=>{setClick(null);
-                        handleSaved(posts)
-                        
-                      }} />
-                    ) : (
-                      
-                      <i
-                        className="bi bi-bookmark ms-auto icons"
-                        style={{ fontSize: "21px" }}
-                        onClick={()=>{handleSaved(posts)}}
-                      ></i>
-                    )
-                  }
-                  <span className="pop-icons">Save</span>
+
+                  {checkSaved.some(
+                    (savedstory) =>
+                      savedstory.id === posts.id
+                  ) ? (
+                    <FaBookmark
+                      style={{ fontSize: "21px" }}
+                      className="ms-auto icons"
+                      onClick={() => {
+                        handleSaved(posts);
+                      }}
+                    />
+                  ) : (
+                    <i
+                      className="bi bi-bookmark ms-auto icons"
+                      style={{ fontSize: "21px" }}
+                      onClick={() => {
+                        handleSaved(posts);
+                      }}
+                    ></i>
+                  )}
+
+                  <span className="pop-icons">
+                    Save
+                  </span>
+
                 </div>
               </div>
-              <div className="post mb-3 " style={{ fontSize: "13px" }}>
+
+              {/* CAPTION */}
+
+              <div
+                className="story mb-3"
+                style={{ fontSize: "13px" }}
+              >
                 <span
                   style={{
                     fontSize: "13px",
@@ -379,12 +607,18 @@ function Feed() {
                   }}
                   className=""
                 >
-                  <span style={{ fontWeight: "bold" }}>
+                  <span
+                    style={{ fontWeight: "bold" }}
+                  >
                     {posts.user.username}
                   </span>
-                  <span className="ms-2">{posts.caption}</span>
+
+                  <span className="ms-2">
+                    {posts.caption}
+                  </span>
                 </span>
               </div>
+
             </div>
           );
         })}

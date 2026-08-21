@@ -16,6 +16,8 @@ function NewPost() {
         "postImage": "",
         "caption": "",
         "timestamp": "",
+        "repostCount":0,
+        "commentCount":0,
         "likes": 125,
          }
  )

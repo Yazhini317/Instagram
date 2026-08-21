@@ -1,92 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "user": {
-        "username": "Maa_ran",
-        "name": "maranyal",
-        "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-        "accountType": "public",
-        "following": true
-      },
-      "postImage": "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&h=600&fit=crop",
-      "postType": "image",
-      "caption": "Beautiful day ✨",
-      "likes": 125,
-      "likedByMe": false,
-      "savedByMe": false,
-      "commentsCount": 2,
-      "repostCount": 18,
-      "savedCount": 32,
-      "comments": [
-        {
-          "id": 1,
-          "profileImage": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop",
-          "username": "anu",
-          "comment": "Beautiful ❤️"
-        },
-        {
-          "id": 2,
-          "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
-          "username": "priya",
-          "comment": "Amazing!"
-        }
-      ],
-      "timestamp": "2 hours ago"
-    },
-    {
-      "id": "2",
-      "user": {
-        "username": "travel_diary",
-        "name": "Travel Diary",
-        "profileImage": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop",
-        "accountType": "public",
-        "following": false
-      },
-      "postImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=600&fit=crop",
-      "postType": "image",
-      "caption": "Exploring new places 🌍",
-      "likes": 342,
-      "likedByMe": false,
-      "savedByMe": false,
-      "commentsCount": 1,
-      "comments": [
-        {
-          "id": 1,
-          "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
-          "username": "rahul",
-          "comment": "Wow! 😍"
-        }
-      ],
-      "timestamp": "5 hours ago"
-    },
-    {
-      "id": "3",
-      "user": {
-        "username": "foodie_world",
-        "name": "Foodie World",
-        "profileImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop",
-        "accountType": "private",
-        "following": true
-      },
-      "postImage": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&h=600&fit=crop",
-      "postType": "image",
-      "caption": "Good food, good mood 🍕❤️",
-      "likes": 89,
-      "likedByMe": false,
-      "savedByMe": false,
-      "commentsCount": 1,
-      "comments": [
-        {
-          "id": 1,
-          "profileImage": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=150&h=150&fit=crop",
-          "username": "sneha",
-          "comment": "Looks delicious! 😋"
-        }
-      ],
-      "timestamp": "1 day ago"
-    },
-    {
       "id": "4",
       "user": {
         "username": "nature_lovers",
@@ -135,6 +49,7 @@
       "likes": 231,
       "likedByMe": false,
       "savedByMe": false,
+      "repostCount": 0,
       "commentsCount": 1,
       "comments": [
         {
@@ -195,6 +110,7 @@
       "likes": 315,
       "likedByMe": false,
       "savedByMe": false,
+      "repostCount": 0,
       "commentsCount": 1,
       "comments": [
         {
@@ -221,6 +137,7 @@
       "likes": 156,
       "likedByMe": false,
       "savedByMe": false,
+      "repostCount": 0,
       "commentsCount": 1,
       "comments": [
         {
@@ -247,6 +164,7 @@
       "likes": 692,
       "likedByMe": false,
       "savedByMe": false,
+      "repostCount": 0,
       "commentsCount": 2,
       "comments": [
         {
@@ -309,7 +227,41 @@
       "caption": "Peace Finds 🎭✨",
       "timestamp": "16 Aug",
       "likes": 125,
+      "repostCount": 0,
+      "commentsCount": 0,
       "id": "Vfjn0m90FL8"
+    },
+    {
+      "user": {
+        "username": "Maa_ran",
+        "name": "Maaran",
+        "profileImage": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop",
+        "following": false,
+        "accountType": "public"
+      },
+      "postImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600&h=600&fit=crop",
+      "caption": "Love Peace Serenity💛",
+      "timestamp": "20 Aug",
+      "repostCount": 0,
+      "commentsCount": 0,
+      "likes": 125,
+      "id": "jZz8ZiK9MNA"
+    },
+    {
+      "user": {
+        "username": "Santha",
+        "name": "SanthaMani",
+        "profileImage": "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=150&h=150&fit=crop",
+        "following": false,
+        "accountType": "public"
+      },
+      "postImage": "https://images.unsplash.com/photo-1511497584788-876760111969?w=600&h=600&fit=crop",
+      "caption": "wandering somewhere🤳✨",
+      "timestamp": "21 Aug",
+      "repostCount": 0,
+      "commentCount": 0,
+      "likes": 125,
+      "id": "OvEkUiSUWSg"
     }
   ],
   "suggestions": [
@@ -390,7 +342,7 @@
   "reels": [
     {
       "id": "1",
-      "userImage":"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop",
+      "userImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop",
       "username": "naturelover",
       "videoUrl": "https://raw.githubusercontent.com/andreasbotsikas/DemoVideos/master/tears_of_steel.mp4",
       "caption": "Peaceful moments in nature 🌿",
@@ -399,7 +351,7 @@
     },
     {
       "id": "2",
-      "userImage":"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop",
+      "userImage": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop",
       "username": "foodie",
       "videoUrl": "https://raw.githubusercontent.com/andreasbotsikas/DemoVideos/master/sintel.mp4",
       "caption": "Made something delicious today 🍕",
@@ -408,7 +360,7 @@
     },
     {
       "id": "3",
-      "userImage":"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop",
+      "userImage": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop",
       "username": "photography",
       "videoUrl": "https://raw.githubusercontent.com/chthomos/video-media-samples/master/big-buck-bunny-1080p-60fps-30sec.mp4",
       "caption": "Captured this moment 📸",
@@ -417,7 +369,7 @@
     },
     {
       "id": "4",
-      "userImage":"https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
+      "userImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
       "username": "lifestyle",
       "videoUrl": "https://raw.githubusercontent.com/chthomos/video-media-samples/master/big-buck-bunny-1080p-30sec.mp4",
       "caption": "Just enjoying the little things ✨",
@@ -426,7 +378,7 @@
     },
     {
       "id": "5",
-      "userImage":"https://images.unsplash.com/photo-1504593811423-6dd665756598?w=150&h=150&fit=crop",
+      "userImage": "https://images.unsplash.com/photo-1504593811423-6dd665756598?w=150&h=150&fit=crop",
       "username": "creator",
       "videoUrl": "https://raw.githubusercontent.com/chthomos/video-media-samples/master/big-buck-bunny-480p-30sec.mp4",
       "caption": "Creating something new today 🎨",
@@ -448,9 +400,22 @@
       "timestamp": "17 Aug",
       "likes": 125,
       "id": "ASl8Ew1A9zM"
+    },
+    {
+      "user": {
+        "username": "Mani_bharathi",
+        "name": "Mani",
+        "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop",
+        "following": false,
+        "accountType": "private"
+      },
+      "postImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=600&fit=crop",
+      "caption": "Peace Finds 🎭✨",
+      "timestamp": "20 Aug",
+      "likes": 125,
+      "id": "jWFjjJfDkgs"
     }
   ],
- 
   "Explore": [
     {
       "id": "1",
@@ -647,5 +612,6 @@
       "comments": 276,
       "layout": "large"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

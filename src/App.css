@@ -1,6 +1,7 @@
-*{
+* {
   box-sizing: border-box;
 }
+
 html,
 body,
 #root {
@@ -19,226 +20,36 @@ body,
 
 
 /* =========================
-   FEED / POST
-========================= */
-
-.post {
-  position: relative;
-  display: flex;
-  width: 300px;
-  min-width: 300px;
-  flex-shrink: 0;
-}
-.commentExpand {
-  position: fixed;
-  inset: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-color: rgba(0, 0, 0, 0.55);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 1000;
-}
-
-
-/* Whole Instagram-style box */
-.commentModal {
-  display: flex;
-  width: 900px;
-  height: 550px;
-  background-color: white;
-  overflow: hidden;
-}
-
-
-/* LEFT - POST */
-
-
-.commentPost img {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-
-/* RIGHT - COMMENTS */
-.comment {
-  width: 50%;
-  height: 100%;
-
-  background-color: white;
-
-  display: flex;
-  flex-direction: column;
-}
-
-
-/* HEADER */
-.commentHeader {
-  height: 60px;
-  padding: 0 15px;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.commentHeadername{
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  margin-bottom: 10%;
-}
-
-/* COMMENTS BODY */
-.commentBody {
-  flex: 1;
-
-  padding: 10px;
-
-  overflow-y: auto;
-}
-
-
-* BOTTOM */
-.commentBottom {
-  height: 60px;
-
-  border-top: 1px solid #ddd;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0 10px;
-  
-}
-
-.commentBottom input {
-  flex: 1;
-
-  border: none;
-  outline: none;
-
-  font-size: 14px;
-}
-
-.commentBottom button {
-  border: none;
-  background: none;
-  color: #0095f6;
-  cursor: pointer;
-  font-weight: 600;
-}
-.post img {
-  object-fit: cover;
-  width: 40px;
-  min-width: 40px;
-  margin-bottom: 10px;
-  flex-shrink: 0;
-}
-
-.post-follow {
-  width: 5px;
-}
-
-.icons {
-  margin: 7px !important;
-  margin-top: 5px;
-transition:  transform 0.15s ease;
-}
-
-.icon-box {
-  cursor: pointer;
-  position: relative;
-}
-
-.icon-box:active  .icons{
-  transform: scaleY(1.2);
-}
-
-/* =========================
-   FOLLOWING ANIMATION
-========================= */
-
-.following {
-  animation: fade 4s infinite;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-
-
-/* =========================
-   POPUP ICONS
-========================= */
-
-.icon-box:hover .pop-icons {
-  display: block;
-}
-
-.pop-icons {
-  display: none;
-  background-color: white;
-  color: black;
-  border-radius: 8px;
-  padding: 0 0 0 30px;
-  margin-top: 60px;
-  margin-left: 10px;
-  position: absolute;
-  z-index: 10;
-}
-
-
-/* =========================
    VIEW STORY
 ========================= */
 
 .story {
   position: relative;
   width: 100%;
-  /* padding:  !important; */
   overflow: hidden;
 }
+
 .video {
   position: relative;
   width: 100%;
   min-width: 100%;
-  /* padding-top:10px !important; */
-  
 }
 
 
 /* Container around the actual story image */
+
 .story-image-container {
   position: absolute;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   width: 400px;
   left: 50%;
   transform: translate(-50%);
-  /* padding-right: 20px;
-  gap: 8px;
-  margin: 0;
-  box-sizing: border-box; */
-
 }
-.video-image-container{
-   position: absolute;
-  height: 100vh; 
+
+.video-image-container {
+  position: absolute;
+  height: 100vh;
   display: flex;
   width: 400px;
   left: 50%;
@@ -247,12 +58,14 @@ transition:  transform 0.15s ease;
 
 
 /* Actual large story image */
+
 .view-story-image {
   display: block;
   width: 400px;
   height: 100vh;
   object-fit: cover;
 }
+
 .view-video-image {
   display: block;
   width: 400px;
@@ -277,6 +90,7 @@ transition:  transform 0.15s ease;
   color: white;
   z-index: 10;
 }
+
 .video-user {
   position: absolute;
   top: 20px;
@@ -292,19 +106,21 @@ transition:  transform 0.15s ease;
 
 
 /* Profile picture */
+
 .story-profile {
   width: 35px;
   height: 35px;
-  
+
   border-radius: 50%;
   object-fit: cover;
 
   flex-shrink: 0;
 }
+
 .video-profile {
   width: 35px;
   height: 35px;
-  
+
   border-radius: 50%;
   object-fit: cover;
 
@@ -313,26 +129,29 @@ transition:  transform 0.15s ease;
 
 
 /* Username + time */
+
 .story-details {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-left: 8px;
 }
+
 .video-details {
   display: flex;
   align-items: center;
   margin-left: 10px;
-  
 }
 
 
 /* Username */
+
 .story-username {
   font-size: 14px;
   font-weight: 600;
   color: white;
 }
+
 .video-username {
   font-size: 14px;
   font-weight: 600;
@@ -341,14 +160,14 @@ transition:  transform 0.15s ease;
 
 
 /* Time */
+
 .story-time {
   font-size: 13px;
   color: white;
   opacity: 0.8;
 }
+
 .video-time {
-  top: 50px;
-  transform: scale(-40px);
   font-size: 12px;
   color: white;
   opacity: 0.8;
@@ -357,6 +176,7 @@ transition:  transform 0.15s ease;
 
 
 /* Three dots */
+
 .story-menu {
   margin-left: auto;
   color: white;
@@ -364,172 +184,9 @@ transition:  transform 0.15s ease;
   font-weight: bold;
 }
 
-.video-menu{
+.video-menu {
   margin-left: auto;
   color: white;
-  margin-top: px;
-}
-
-/* =========================
-   STORY LIST
-========================= */
-
-.story-container {
-  display: flex;
-  width: 100%;
-  overflow-x: hidden;
-  padding: 0;
-  margin: 0;
-  gap: 8px;
-}
-
-.story-item {
-  width: 90px;
-  min-width: 90px;
-  height: 80px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-}
-
-
-/* =========================
-   STORY LOADER
-========================= */
-
-.story-loader {
-  position: relative;
-
-  width: 64px;
-  height: 64px;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-}
-
-
-/* Gradient ring */
-.story-loader::before {
-  content: "";
-
-  position: absolute;
-
-  width: 64px;
-  height: 64px;
-
-  border-radius: 50%;
-
-  background: conic-gradient(
-    #d62976,
-    #d62976,
-    #fa7e1e
-  );
-
-  z-index: 1;
-}
-
-
-/* White inner circle */
-.story-loader::after {
-  content: "";
-
-  position: absolute;
-
-  width: 58px;
-  height: 58px;
-
-  border-radius: 50%;
-
-  background: white;
-
-  z-index: 1;
-}
-
-
-/* Profile image inside story ring */
-.story-image {
-  position: relative;
-
-  z-index: 2;
-
-  width: 54px;
-  height: 54px;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-}
-.videostory{
-  position: relative;
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  top:20px;
-  right:300px;
-  margin-right: 10px;
-}
-
-/* Story loading animation */
-.story-progress::before {
-  animation: storyLoading 1s linear;
-}
-
-@keyframes storyLoading {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* =========================
-   STORY ARROWS
-========================= */
-
-.story-arrow,
-.story-arrow-left {
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 25px;
-  height: 25px;
-
-  border: none;
-  border-radius: 50%;
-
-  background-color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 100;
-
-  box-shadow: 0 2px 8px rgba(255, 249, 249, 0.25);
-
-  cursor: pointer;
-}
-
-.story-arrow {
-  right: 5px;
-}
-
-.story-arrow-left {
-  left: 5px;
 }
 
 
@@ -561,4 +218,127 @@ transition:  transform 0.15s ease;
 .username {
   font-size: 13px;
   padding: 2px;
+}
+
+
+/* =========================
+   PRIVATE POSTS
+========================= */
+
+.privPost {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .text-dark {
+    width: fit-content;
+    margin-right: auto;
+  }
+
+  .text-dark:hover {
+    background-color: transparent;
+  }
+
+  .sidebar-dropdown .dropdown-toggle::after {
+    display: none !important;
+  }
+
+  .sidebar {
+    width: 100% !important;
+    height: 50px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background-color: whitesmoke;
+    transition: none;
+  }
+
+  .sidebar .container {
+    height: 60px !important;
+    flex-direction: row !important;
+    min-height: 60px !important;
+    padding: 0 !important;
+    width: 80%;
+  }
+
+  .sidebar .navbar-brand {
+    position: fixed;
+    top: 0px !important;
+    left: 0px !important;
+    height: 60px !important;
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-top: 10px !important;
+  }
+
+  .sidebar .bottom-nav {
+    display: none !important;
+  }
+
+  .nav .heart {
+    position: fixed;
+    top: 0px !important;
+    right: 0px !important;
+    padding-top: 10px !important;
+    background-color: transparent;
+  }
+
+  .sidebar .nav {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    background-color: transparent;
+    min-height: 60px;
+  }
+
+  .sidebar .nav img {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+  }
+
+  .suggestions {
+    display: none !important;
+  }
+
+  .feed {
+    width: 100% !important;
+    margin-top: 60px !important;
+    min-width: 100% !important;
+  }
+
+  .postContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+  }
+
+  .popup-text {
+    display: none;
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 40px;
+  }
+
+  .sidebar .nav .text-dark:hover .popup-text {
+    display: block;
+  }
+
+  .story {
+    position: relative;
+    width: 100%;
+    right: 100px !important;
+    overflow-x: auto;
+  }
 }

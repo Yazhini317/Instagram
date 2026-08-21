@@ -5,13 +5,16 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import { FaInstagram } from "react-icons/fa";
 import { GrHomeRounded } from "react-icons/gr";
+import { FaRegBookmark } from "react-icons/fa";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 import { RiSendInsLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
 import { BsPlusLg } from "react-icons/bs";
 import { IoIosMenu } from "react-icons/io";
 import { SiThreads } from "react-icons/si";
+import { MdOutlineWbSunny } from "react-icons/md";
 import profile from "../assets/profile-dp.jpeg";
 import { GoHomeFill } from "react-icons/go";
 import { MdSmartDisplay } from "react-icons/md";
@@ -23,6 +26,10 @@ import { useLocation } from "react-router-dom";
 import { Paper, Typography } from "@mui/material";
 
 function SideBar({ user }) {
+  const [menuSwitch,setMenu]=useState(null)
+  const handleMenuSwitch=(name)=>{
+      setMenu(menuSwitch === name ? null : name)
+  }
   const [Hover, setHover] = useState(false);
   const [click, setClick] = useState("");
   const navigate = useNavigate();
@@ -82,8 +89,10 @@ function SideBar({ user }) {
             </Nav.Link>
             <Nav.Link className="text-dark">
               <FiSearch size={25} className="me-3 mb-2"  onClick={()=>{navigate('/Search')}}/>{" "}
-              {window.innerWidth > 1000 && Hover && "Search"}
-              <span className="popup-text">Search</span>
+              {window.innerWidth > 1000 && Hover && (
+                <span onClick={()=>{navigate('/Search')}}>Search</span>
+              )}
+              <span className="popup-text" >Search</span>
             </Nav.Link>
             <Nav.Link className="text-dark" onClick={() =>{ 
               
@@ -113,7 +122,9 @@ function SideBar({ user }) {
               ) : (
                 <MdOutlineSmartDisplay size={25} className="me-3 mb-2" onClick={()=>{navigate('/Reels')}} />
               )}{" "}
-              {window.innerWidth > 1000 && Hover && "Reels"}
+              {window.innerWidth > 1000 && Hover && (
+                <span onClick={()=>{navigate('/Reels')}}>Reels</span>
+              )}
               <span className="popup-text">Reels</span>
             </Nav.Link>
             <Nav.Link
@@ -125,7 +136,9 @@ function SideBar({ user }) {
               ) : (
                 <RiSendInsLine size={25} className="me-3 mb-2" onClick={()=>{navigate('/Message')}} />
               )}{" "}
-              {window.innerWidth > 1000 && Hover && "Messages"}
+              {window.innerWidth > 1000 && Hover && (
+                <span onClick={()=>{navigate('/Message')}}>Messages</span>
+              )}
               <span className="popup-text">Messages</span>
             </Nav.Link>
             {/* {
@@ -152,17 +165,19 @@ function SideBar({ user }) {
               onClick={() => setClick("Notifications")}
             >
               {click === "Notifications" ? (
-                <FaHeart size={25} className="me-3 mb-2" />
+                <FaHeart size={25} className="me-3 mb-2" onClick={()=>{navigate('/LikedPost')}} />
               ) : (
                 <FaRegHeart size={25} className="me-3 mb-2" />
               )}
 
-              {window.innerWidth > 1000 && Hover && "Notifications"}
+              {window.innerWidth > 1000 && Hover && 
+              <span onClick={()=>{navigate('/LikedPost')}}>Notifications</span>
+              }
             </Nav.Link>
             <Nav.Link as={Link} to={`/${user}`} className="text-dark">
               <img src={profile} className="me-3 mb-2 w-15 rounded-circle" />
               {window.innerWidth > 1000 && Hover && "Profile"}
-              <span className="popup-text">Profile</span>
+              <span className="popup-text" >Profile</span>
             </Nav.Link>
           </Nav>
 
@@ -176,8 +191,15 @@ function SideBar({ user }) {
                   {Hover && "More"}
                 </>
               }
-              className="sidebar-dropdown fs-6 d-flex  text-dark align-items-center"
-            ></NavDropdown>
+              className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
+              drop="up"
+           >
+              
+              <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}}><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
+              <NavDropdown.Item  onClick={()=>{navigate('/SavedPost')}}><FaRegBookmark/>{" "}Saved</NavDropdown.Item>
+                
+             
+            </NavDropdown>
 
             <Nav.Link className="text-dark me-2">
               <SiThreads size={25} className="me-2 mb-2 bottom-link" />{" "}

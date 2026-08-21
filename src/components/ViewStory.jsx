@@ -37,7 +37,7 @@ const scrollLeftStory=()=>{
     navigate('/');
     return;
   }
-  navigate(`/ViewStory/${stories[currentIndex-1].id},{replace:true}`)
+  navigate(`/ViewStory/${stories[currentIndex-1].id}`,{replace:true})
 }
 const scrollRightStory=()=>{
   if(currentIndex < stories.length -1){

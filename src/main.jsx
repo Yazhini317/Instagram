@@ -15,6 +15,7 @@ import SavedPost from './components/SavedPost.jsx';
 import EditProfile from './components/EditProfile.jsx';
 import Message from './components/Message.jsx';
 import Search from './components/Search.jsx';
+import LikedPost from './components/LikedPost.jsx';
 
 const router=createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router=createBrowserRouter([
   {
     path:'/SavedPost',
     element:<SavedPost/>
+  },
+  {
+    path:'/LikedPost',
+    element:<LikedPost/>
   }
 ])
 createRoot(document.getElementById('root')).render(

@@ -12,12 +12,13 @@ import { useNavigate } from "react-router-dom";
 import { OrbitProgress } from "react-loading-indicators";
 import './Feed.css'
 
+
 function PrivatePost() {
     const {post,setPost}=useFetch("http://localhost:5000/PrivatePost")
     const navigate = useNavigate();
   return (
      <>
-        <div className="flex-column">
+        <div className="privPost">
              {post.map((posts) => {
                       return (
                         <div

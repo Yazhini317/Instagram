@@ -422,7 +422,7 @@
 
     overflow: visible;
   }
-
+  
   .camera {
     font-size: 40px;
     color: #474444;
@@ -511,3 +511,8 @@ body {
   margin-bottom: 30px !important;
   margin-right: 50px !important;
 }
+.menutab{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+  }

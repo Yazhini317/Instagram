@@ -1,0 +1,12 @@
+.likedContainer{
+  margin-top: 70px;
+  margin-left: 70px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+html{
+    overflow: hidden;
+}

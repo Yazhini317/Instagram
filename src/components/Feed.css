@@ -1,100 +1,482 @@
-@media (max-width: 1000px) {
-  .text-dark {
-    width: fit-content;
-    margin-right: auto;
-  }
-  .text-dark:hover {
-    background-color: transparent;
-  }
+/* =========================
+   FEED / POST
+========================= */
 
-  .sidebar {
-    width: 100% !important;
-    height: 50px !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background-color: whitesmoke;
-    transition: none;
-  }
-
-  .sidebar .container {
-    height: 60px !important;
-    flex-direction: row !important;
-    min-height: 60px !important;
-    padding: 0 !important;
-    width: 80%;
-    /* background-color: brown; */
-  }
-
-  .sidebar .navbar-brand {
-    position: fixed;
-    top: 0px !important;
-    left: 0px !important;
-    /* background-color: yellow; */
-    height: 60px !important;
-    width: 100% !important;
-    padding-left: 20px !important;
-    padding-top: 10px !important;
-  }
-  .sidebar .bottom-nav {
-    display: none !important;
-  }
-
-  .nav .heart {
-    position: fixed;
-    top: 0px !important;
-    right: 0px !important;
-    padding-top: 10px !important;
-    background-color: transparent;
-  }
-
-  .sidebar .nav {
-    flex-direction: row !important;
-    width: 100% !important;
-    justify-content: space-evenly !important;
-    align-items: center !important;
-    background-color: transparent;
-    min-height: 60px;
-  }
-
-  .sidebar .nav img {
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 50%;
-  }
-  .suggestions {
-    display: none !important;
-  }
-  .feed {
-    width: 100% !important;
-    margin-top: 60px !important;
-    min-width: 100% !important;
-  }
-
-  .postContainer{
-    display: flex;
-    flex-direction: column;
-    justify-self: start;
-    
-  }
-
-  .popup-text {
-    display: none;
-    background-color: white;
-    color: black;
-    padding: 5px 10px;
-    position: absolute;
-    bottom: 0px;
-    margin-left: 40px;
-  }
-  .sidebar .nav .text-dark:hover .popup-text {
-    display: block;
-  }
-
- .story {
+.post {
   position: relative;
-  width: 100%;
-  right: 100px !important;
+  display: flex;
+  width: 300px;
+  
+  min-width: 300px;
+  
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   COMMENT MODAL
+========================= */
+
+.commentExpand {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+
+/* Whole Instagram-style box */
+
+.commentModal {
+  display: flex;
+  width: 900px;
+  height: 550px;
+  background-color: white;
   overflow: hidden;
 }
+
+
+/* =========================
+   LEFT - POST
+========================= */
+
+.commentPost {
+  width: 50%;
+  height: 100%;
+}
+
+.commentPost img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+
+/* =========================
+   RIGHT - COMMENTS
+========================= */
+
+.comment {
+  width: 50%;
+  height: 100%;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================
+   COMMENT HEADER
+========================= */
+
+.commentHeader {
+  height: 60px;
+  padding: 0 15px;
+  border-bottom: 1px solid #ddd;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commentHeadername {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+
+/* =========================
+   COMMENT BODY
+========================= */
+
+.commentBody {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+
+/* =========================
+   COMMENT BOTTOM
+========================= */
+
+.commentBottom {
+  height: 60px;
+
+  border-top: 1px solid #ddd;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+}
+
+.commentBottom input {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+}
+
+.commentBottom button {
+  border: none;
+  background: none;
+  color: #0095f6;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+/* =========================
+   POST IMAGE
+========================= */
+
+.post img {
+  object-fit: cover;
+  width: 40px;
+  min-width: 40px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.post-follow {
+  width: 5px;
+}
+
+
+/* =========================
+   ICONS
+========================= */
+
+.icons {
+  margin: 7px !important;
+  margin-top: 5px;
+  transition: transform 0.15s ease;
+}
+
+.icon-box {
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-box:active .icons {
+  transform: scaleY(1.2);
+}
+
+
+/* =========================
+   FOLLOWING ANIMATION
+========================= */
+
+.following {
+  animation: fade 4s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+
+/* =========================
+   POPUP ICONS
+========================= */
+
+.icon-box:hover .pop-icons {
+  display: block;
+}
+
+.pop-icons {
+  display: none;
+
+  background-color: white;
+  color: black;
+
+  border-radius: 8px;
+
+  padding: 0 0 0 30px;
+
+  margin-top: 60px;
+  margin-left: 10px;
+
+  position: absolute;
+
+  z-index: 10;
+}
+
+
+/* =========================
+   STORY LIST
+========================= */
+
+.story-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  overflow-x: auto;
+ overflow-y: visible !important;
   
 }
+
+.story-container::-webkit-scrollbar {
+  display: none;
+}
+
+.story-item {
+  width: 90px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 90px;
+}
+
+
+/* =========================
+   STORY LOADER
+========================= */
+
+.story-loader {
+  position: relative;
+
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* Gradient ring */
+
+.story-loader::before {
+  content: "";
+
+  position: absolute;
+
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #d62976,
+    #d62976,
+    #fa7e1e
+  );
+
+  z-index: 1;
+}
+
+
+/* White inner circle */
+
+.story-loader::after {
+  content: "";
+
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  z-index: 1;
+}
+
+
+/* Profile image */
+
+.story-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 54px;
+  height: 54px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+
+/* =========================
+   STORY LOADING ANIMATION
+========================= */
+
+.story-progress::before {
+  animation: storyLoading 1s linear;
+}
+
+@keyframes storyLoading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   STORY ARROWS
+========================= */
+
+.story-arrow,
+.story-arrow-left {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 25px;
+  height: 25px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+
+  box-shadow: 0 2px 8px rgba(255, 249, 249, 0.25);
+
+  cursor: pointer;
+}
+
+.story-arrow {
+  right: 5px;
+}
+
+.story-arrow-left {
+  left: 5px;
+}
+
+
+/* =========================
+   FOLLOW BUTTON
+========================= */
+
+.story-follow {
+  width: auto;
+}
+
+  .post-profile {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+
+@media (max-width:1000px) {
+  .post{
+    position: relative !important;
+    right: 210px !important;
+  }
+}
+/* =========================
+   THREE DOT DROPDOWN
+========================= */
+/* 
+.storyContainer {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Header containing three dots */
+.storyContainer > .story {
+  position: relative;
+  z-index: 1000 !important;
+  overflow: visible !important;
+}
+
+/* Three dot Nav */
+.sidebar-dropdown {
+  position: relative !important;
+  z-index: 9999 !important;
+  overflow: visible !important;
+}
+
+.sidebar-dropdown .dropdown {
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+/* Three dots */
+.sidebar-dropdown .dropdown-toggle {
+  position: relative !important;
+  z-index: 100000 !important;
+  
+}
+
+/* Dropdown box */
+.sidebar-dropdown .dropdown-menu {
+  position: absolute !important;
+
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+
+  transform: none !important;
+
+  z-index: 999999 !important;
+
+  min-width: 120px !important;
+
+  background-color: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+
+ 
+}
+
+/* When Bootstrap opens it */
+.sidebar-dropdown .dropdown-menu.show {
+  display: block !important;
+}
+
+/* Delete */
+.sidebar-dropdown .dropdown-item {
+  
+  position: relative !important;
+  z-index: 1000000 !important;
+} 

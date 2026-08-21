@@ -140,15 +140,18 @@ useEffect(() => {
     <i className="bi bi-person-square"></i>
   </div>
 </div>
+<div className="menutab">
+
 {
  menupost && post.map((posts)=>{
     return(
-      <div key={posts.id}>
+      <div key={posts.id} >
       <img src={posts.postImage} className="post " onClick={()=>{navigate('/PrivatePost')}}/>
     </div>
     )
   })
 }
+</div>
 
 {
  savedpost && savingPost
