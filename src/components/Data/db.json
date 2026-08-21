@@ -612,6 +612,5 @@
       "comments": 276,
       "layout": "large"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
