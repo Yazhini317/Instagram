@@ -183,7 +183,7 @@ function SideBar({ user }) {
 
           {/* {Bottom page} */}
 
-          <Nav className="bottom-nav sidebar-dropdown ">
+          <Nav className="bottom-nav sidebar-dropdown d-flex flex-column ">
             <NavDropdown
               title={
                 <>
