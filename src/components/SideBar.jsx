@@ -71,7 +71,7 @@ function SideBar({ user }) {
 
           {/* middle*/}
 
-          <Nav className="nav flex-column justify-content-evenly">
+          <Nav className="nav flex-column justify-content-evenly 100vh">
             <Nav.Link
               className="text-dark"
               onClick={() => {
@@ -192,8 +192,8 @@ function SideBar({ user }) {
                 </>
               }
               className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
-              
-    
+              drop="up"
+             
            >
               
               <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}} ><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
