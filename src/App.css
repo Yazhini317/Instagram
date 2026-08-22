@@ -342,3 +342,14 @@ body,
     overflow-x: auto;
   }
 }
+
+.bottom-nav {
+  margin-top: auto !important;
+}
+
+.sidebar-dropdown .dropdown-menu {
+  top: auto !important;
+  bottom: 100% !important;
+  left: 0 !important;
+  margin-bottom: 10px !important;
+}
