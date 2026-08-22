@@ -196,8 +196,8 @@ function SideBar({ user }) {
              
            >
               
-              <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}}><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
-              <NavDropdown.Item  onClick={()=>{navigate('/SavedPost')}}><FaRegBookmark/>{" "}Saved</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}} drop="up"><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
+              <NavDropdown.Item  onClick={()=>{navigate('/SavedPost')}} drop="up"><FaRegBookmark/>{" "}Saved</NavDropdown.Item>
                 
              
             </NavDropdown>
