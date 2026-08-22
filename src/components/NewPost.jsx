@@ -3,7 +3,7 @@ import {Button, Grid, Paper, TextField, Typography} from '@mui/material'
 import useFetch from './useFetch'
 import { useNavigate } from 'react-router-dom'
 function NewPost() {
-    const {post,setPost}=useFetch("http://localhost:5000/posts")
+    const {post,setPost}=useFetch("https://instagram-project-oybk.onrender.com/posts")
  const [newPost,setNewPost]=useState(
          
       { "user":     {    
@@ -44,7 +44,7 @@ function NewPost() {
 const navigate=useNavigate()
  const handleCreatePost=()=>{
    const url = newPost.user.accountType === "public" ? 
-    'http://localhost:5000/posts' : 'http://localhost:5000/PrivatePost';
+    'https://instagram-project-oybk.onrender.com/posts' : 'https://instagram-project-oybk.onrender.com/PrivatePost';
 
      fetch(url,{
         method:"POST",

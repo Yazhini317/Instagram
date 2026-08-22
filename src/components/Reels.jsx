@@ -6,7 +6,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 function Reels() {
   const [reels, setReels] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reels")
+    fetch("https://instagram-project-oybk.onrender.com/reels")
       .then((res) => {
         if (res.ok) {
           return res.json();

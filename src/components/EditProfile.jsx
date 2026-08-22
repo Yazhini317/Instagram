@@ -11,7 +11,7 @@ function EditProfile (){
     const navigate=useNavigate()
       const [profile, setProfile] = useState([]);
        useEffect(() => {
-          fetch("http://localhost:5000/suggestions")
+          fetch("https://instagram-project-oybk.onrender.com/suggestions")
             .then((res) => {
               if (res.ok) {
                 return res.json();
@@ -27,7 +27,7 @@ function EditProfile (){
         }, []);
         const [bio,setBio]=useState("")
         const handleSubmit=()=>{
-            fetch('http://localhost:5000/suggestions/1',{
+            fetch('https://instagram-project-oybk.onrender.com/suggestions/1',{
                 method:"PATCH",
                 headers:{
                    "Content-Type" : "application/json"

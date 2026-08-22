@@ -3,10 +3,10 @@ import useFetch from './useFetch'
 import profile from "../assets/profile-dp.jpeg";
 import { Button } from 'react-bootstrap';
 function Suggestions() {
-  const {post,setError}=useFetch( "http://localhost:5000/posts")
+  const {post,setError}=useFetch( "https://instagram-project-oybk.onrender.com/posts")
   const [suggest,setSuggest]=useState([])
   useEffect(()=>{
-    fetch("http://localhost:5000/suggestions")
+    fetch("https://instagram-project-oybk.onrender.com/suggestions")
     .then((res)=>{
       if(res.ok){
         return res.json()

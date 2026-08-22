@@ -7,7 +7,7 @@ function ViewStory() {
   const [viewedStory, setViewStory] = useState([]);
   const [stories,setStories]=useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/stories')
+    fetch('https://instagram-project-oybk.onrender.com/stories')
       .then((res) => {
         if (res.ok) {
           

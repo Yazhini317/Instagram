@@ -15,7 +15,7 @@ function Search() {
     useEffect(() => {
 
         // Fetch Explore data
-        fetch("http://localhost:5000/Explore")
+        fetch("https://instagram-project-oybk.onrender.com/Explore")
             .then((res) => {
 
                 if (res.ok) {
@@ -34,7 +34,7 @@ function Search() {
 
 
         // Fetch Posts data
-        fetch("http://localhost:5000/posts")
+        fetch("https://instagram-project-oybk.onrender.com/posts")
             .then((res) => {
 
                 if (res.ok) {

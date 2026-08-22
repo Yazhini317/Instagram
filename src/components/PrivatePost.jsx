@@ -14,7 +14,7 @@ import './Feed.css'
 
 
 function PrivatePost() {
-    const {post,setPost}=useFetch("http://localhost:5000/PrivatePost")
+    const {post,setPost}=useFetch("https://instagram-project-oybk.onrender.com/PrivatePost")
     const navigate = useNavigate();
   return (
      <>

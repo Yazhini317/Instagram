@@ -9,7 +9,7 @@ import { Grid, TextField } from '@mui/material';
 import { RiSendPlaneLine } from "react-icons/ri";
 function Message() {
   
-   const {post,setPost}=useFetch('http://localhost:5000/posts')
+   const {post,setPost}=useFetch('https://instagram-project-oybk.onrender.com/posts')
   return (
     <>
     <div className='message-page'>

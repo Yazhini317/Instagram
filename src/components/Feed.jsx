@@ -20,7 +20,7 @@ const [menuOpen,setMenuOpen]=useState(null)
   const [story, setStory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/stories")
+    fetch("https://instagram-project-oybk.onrender.com/stories")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Data not found");
@@ -32,7 +32,7 @@ const [menuOpen,setMenuOpen]=useState(null)
       .catch((error) => console.log(error.message));
   }, []);
 
-  const { post } = useFetch("http://localhost:5000/posts");
+  const { post } = useFetch("https://instagram-project-oybk.onrender.com/posts");
 
   const [showLeft, setLeft] = useState(false);
   const [showRight, setRight] = useState(true);
@@ -154,7 +154,7 @@ const [menuOpen,setMenuOpen]=useState(null)
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/posts/${id}`, {
+    fetch(`https://instagram-project-oybk.onrender.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => {

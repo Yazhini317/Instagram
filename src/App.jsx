@@ -12,7 +12,7 @@ function App() {
     clearTimeout(timer)
    },4000)
   },[])
- const {post}=useFetch("http://localhost:5000/suggestions")
+ const {post}=useFetch("https://instagram-project-oybk.onrender.com/suggestions")
  const user=post.map((users)=>{
  return users.user.username;
  })
