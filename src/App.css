@@ -236,6 +236,9 @@ body,
    MOBILE
 ========================= */
 
+.sidebar .bottom-nav {
+  display: none !important;
+}
 @media (max-width: 1000px) {
 
   .text-dark {
@@ -278,9 +281,6 @@ body,
     padding-top: 10px !important;
   }
 
-  .sidebar .bottom-nav {
-    display: none !important;
-  }
 
   .nav .heart {
     position: fixed;
