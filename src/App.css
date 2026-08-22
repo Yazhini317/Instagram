@@ -343,6 +343,16 @@ body,
   }
 }
 
+.sidebar-dropdown .dropdown-menu.show {
+  position: fixed !important;
+  left: 70px !important;
+  bottom: 55px !important;
+  top: auto !important;
+  transform: none !important;
+  z-index: 999999 !important;
+  width: 200px !important;
+min-width: 200px !important;
+}
 
 .sidebar-dropdown .dropdown-menu {
   transform: translateY(-55px) !important;
