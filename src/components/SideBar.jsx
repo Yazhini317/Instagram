@@ -185,14 +185,18 @@ function SideBar({ user }) {
 
           <Nav className="bottom-nav  flex-column align-items-start">
             <NavDropdown
-              title={
+             drop="up"
+  popperConfig={{
+    strategy: "fixed"
+  }}
+             title={
                 <>
                   <IoIosMenu className="me-2  mb-2 bottom-link" size={25} />
                   {Hover && "More"}
                 </>
               }
               className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
-              drop="up"
+              
              
            >
               
