@@ -183,7 +183,7 @@ function SideBar({ user }) {
 
           {/* {Bottom page} */}
 
-          <Nav className="bottom-nav  flex-column align-items-start">
+          <Nav className="bottom-nav sidebar-dropdown ">
             <NavDropdown
               title={
                 <>
@@ -191,7 +191,7 @@ function SideBar({ user }) {
                   {Hover && "More"}
                 </>
               }
-              className="sidebar-dropdown  "
+              className="  "
               drop="up"
              
            >
