@@ -165,9 +165,9 @@ function SideBar({ user }) {
               onClick={() => setClick("Notifications")}
             >
               {click === "Notifications" ? (
-                <FaHeart size={25} className="me-3 mb-2" onClick={()=>{navigate('/LikedPost')}} />
+                <FaHeart size={25} className="me-3 mb-2"  />
               ) : (
-                <FaRegHeart size={25} className="me-3 mb-2" />
+                <FaRegHeart size={25} className="me-3 mb-2" onClick={()=>{navigate('/LikedPost')}} />
               )}
 
               {window.innerWidth > 1000 && Hover && 
