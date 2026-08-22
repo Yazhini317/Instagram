@@ -343,3 +343,6 @@ body,
   }
 }
 
+.sidebar-dropdown .dropdown-menu {
+  z-index: 999999 !important;
+}
