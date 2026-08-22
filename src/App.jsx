@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./components/SideBar";
 import useFetch from "./components/useFetch";
 import { Outlet } from "react-router-dom";
@@ -6,7 +6,7 @@ import instaopen from './assets/instaopen.gif'
 
 function App() {
   const [opening,setOpening]=useState(true)
-  useState(()=>{
+  useEffect(()=>{
   const timer = setTimeout(()=>{
     setOpening(false);
     clearTimeout(timer)

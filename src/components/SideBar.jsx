@@ -193,6 +193,7 @@ function SideBar({ user }) {
               }
               className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
               drop="up"
+              align="start"
            >
               
               <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}}><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
@@ -232,7 +233,7 @@ function SideBar({ user }) {
             variant="h6"
             className="d-flex align-items-center justify-content-center mt-1 fs-7 fw-bold"
           >
-            <RiSendInsLine size={25} />
+            <RiSendInsLine size={25} onClick={()=>{navigate('/Message')}} />
           </Typography>
         </Paper>
       )}
