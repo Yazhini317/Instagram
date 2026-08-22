@@ -5,13 +5,16 @@ import { Outlet } from "react-router-dom";
 import instaopen from './assets/instaopen.gif'
 
 function App() {
-  const [opening,setOpening]=useState(true)
+  const [opening,setOpening]=useState(
+    !localStorage.getItem("openingShown")
+  )
   useEffect(()=>{
   const timer = setTimeout(()=>{
     setOpening(false);
-    clearTimeout(timer)
-   },4000)
-  },[])
+    localStorage.setItem("openingShown",true)
+  },4000)
+  return () =>clearTimeout(timer)
+  },[opening])
  const {post}=useFetch("https://instagram-project-oybk.onrender.com/suggestions")
  const user=post.map((users)=>{
  return users.user.username;
