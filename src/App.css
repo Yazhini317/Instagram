@@ -236,9 +236,6 @@ body,
    MOBILE
 ========================= */
 
-.sidebar .bottom-nav {
-  display: none !important;
-}
 @media (max-width: 1000px) {
 
   .text-dark {
@@ -263,6 +260,9 @@ body,
     transition: none;
   }
 
+  .sidebar .bottom-nav {
+    display: none !important;
+  }
   .sidebar .container {
     height: 60px !important;
     flex-direction: row !important;
