@@ -342,3 +342,26 @@ body,
     overflow-x: auto;
   }
 }
+
+.sidebar {
+  z-index: 1000 !important;
+  overflow: visible !important;
+}
+
+.sidebar .container {
+  overflow: visible !important;
+}
+
+.bottom-nav {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+.sidebar-dropdown {
+  position: relative;
+  z-index: 9999 !important;
+}
+
+.sidebar-dropdown .dropdown-menu {
+  z-index: 99999 !important;
+}
