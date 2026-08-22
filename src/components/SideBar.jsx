@@ -183,7 +183,7 @@ function SideBar({ user }) {
 
           {/* {Bottom page} */}
 
-          <Nav className="bottom-nav sidebar-dropdown d-flex flex-column ">
+          <Nav className="bottom-nav  flex-column align-items-start">
             <NavDropdown
               title={
                 <>
@@ -191,9 +191,9 @@ function SideBar({ user }) {
                   {Hover && "More"}
                 </>
               }
-              className="  "
-              drop="up"
-             
+              className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
+              
+    
            >
               
               <NavDropdown.Item onClick={()=>{navigate(`/EditProfile/ya_zh_u`)}} ><IoSettingsOutline/>{" "}Edit Settings</NavDropdown.Item>
