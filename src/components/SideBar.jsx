@@ -71,7 +71,7 @@ function SideBar({ user }) {
 
           {/* middle*/}
 
-          <Nav className="nav flex-column justify-content-evenly 100vh">
+          <Nav className="nav flex-column justify-content-evenly">
             <Nav.Link
               className="text-dark"
               onClick={() => {
@@ -192,7 +192,14 @@ function SideBar({ user }) {
                 </>
               }
               className="sidebar-dropdown  fs-6 d-flex  text-dark align-items-center "
-              
+                popperConfig={{
+    modifiers: [
+      {
+        name: "flip",
+        enabled: false,
+      },
+    ],
+  }}
     
            >
               
