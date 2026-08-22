@@ -218,7 +218,7 @@ function SideBar({ user }) {
             variant="h6"
             className="d-flex align-items-center gap-3 fs-6 fw-bold"
           >
-            <RiSendInsLine size={25} />
+            <RiSendInsLine size={25} onClick={()=>{navigate('/Message')}}/>
             Messages
           </Typography>
         </Paper>
