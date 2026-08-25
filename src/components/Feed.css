@@ -423,67 +423,81 @@
 }
 
 /* Header containing three dots */
+/* =========================
+   THREE DOT DROPDOWN
+========================= */
+
+.storyContainer {
+  position: relative;
+  overflow: visible !important;
+}
+
 .storyContainer > .story {
   position: relative;
+  width: 300px;
+  overflow: visible !important;
+  z-index: 10;
+}
+
+/* Three dot container */
+.storyContainer .sidebar-dropdown {
+  position: relative !important;
+  margin-left: auto !important;
   z-index: 1000 !important;
-  overflow: visible !important;
 }
 
-/* Three dot Nav */
-.sidebar-dropdown {
+/* Bootstrap dropdown */
+.storyContainer .sidebar-dropdown .dropdown {
   position: relative !important;
-  z-index: 9999 !important;
-  overflow: visible !important;
-}
-
-.sidebar-dropdown .dropdown {
-  position: relative !important;
-  z-index: 99999 !important;
 }
 
 /* Three dots */
-.sidebar-dropdown .dropdown-toggle {
+.storyContainer .sidebar-dropdown .dropdown-toggle {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
   position: relative !important;
-  z-index: 100000 !important;
-  
 }
 
-/* Dropdown box */
-.sidebar-dropdown .dropdown-menu {
-  position: absolute !important;
+/* Remove Bootstrap arrow */
+.storyContainer .sidebar-dropdown .dropdown-toggle::after {
+  display: none !important;
+}
 
+/* Delete popup */
+.storyContainer .sidebar-dropdown .dropdown-menu {
+  position: absolute !important;
   top: 100% !important;
   right: 0 !important;
   left: auto !important;
-
+  bottom: auto !important;
   transform: none !important;
 
-  z-index: 999999 !important;
-
   min-width: 120px !important;
+  width: 120px !important;
 
-  background-color: white !important;
+  background: white !important;
   border: 1px solid #ddd !important;
   border-radius: 8px !important;
 
- 
+  z-index: 99999 !important;
 }
 
-/* When Bootstrap opens it */
-.sidebar-dropdown .dropdown-menu.show {
+/* Open dropdown */
+.storyContainer .sidebar-dropdown .dropdown-menu.show {
   display: block !important;
 }
 
-/* Delete */
-.sidebar-dropdown .dropdown-item {
-  
+/* Delete item */
+.storyContainer .sidebar-dropdown .dropdown-item {
   position: relative !important;
-  z-index: 1000000 !important;
-} 
-.story-follow {
-  margin-left: auto !important;
+  z-index: 100000 !important;
 }
 
-.sidebar-dropdown {
-  margin-left: 5px !important;
+/* Follow button */
+.story-follow {
+  width: auto;
+  margin-left: auto !important;
+  margin-right: 5px !important;
+  flex-shrink: 0;
 }
