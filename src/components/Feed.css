@@ -480,3 +480,8 @@
   position: relative !important;
   z-index: 1000000 !important;
 } 
+.post{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:2px
+}
