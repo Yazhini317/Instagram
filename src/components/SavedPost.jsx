@@ -61,7 +61,7 @@ const SavedPost = () => {
     
   }
     return (
-    <div>
+    <div className="saved-post-grid">
 {
     savedPage.map((saved)=>{
         return(
