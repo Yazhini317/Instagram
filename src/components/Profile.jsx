@@ -152,6 +152,7 @@ useEffect(() => {
   })
 }
 </div>
+<div className="menutab">
 
 {
  savedpost && savingPost
@@ -159,11 +160,12 @@ useEffect(() => {
       .map((savepost) =>{
     return(
        <div key={savepost.id} >
-      <img src={savepost.postImage} className="post menutab " onClick={()=>{navigate('/SavedPost')}}/>
+      <img src={savepost.postImage} className="post" onClick={()=>{navigate('/SavedPost')}}/>
       </div>
     )
   })
 }
+</div>
 {
   post.length === 0 && (
 <>
