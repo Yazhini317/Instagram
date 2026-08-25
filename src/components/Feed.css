@@ -411,7 +411,7 @@
    MOBILE VIEW
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
 
   .storyContainer {
     width: 100% !important;
@@ -421,7 +421,7 @@
 
   .post {
     position: relative !important;
-    right: 0 !important;
+    right: 30px !important;
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
