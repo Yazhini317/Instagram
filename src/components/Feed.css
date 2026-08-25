@@ -437,7 +437,7 @@
   }
 
   .icons {
-    position: fixed;
+    position: absolute;
     font-size: 22px !important;
   }
 
