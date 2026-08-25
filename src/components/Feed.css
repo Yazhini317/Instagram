@@ -407,47 +407,10 @@
 }
 
 
-/* =========================
-   MOBILE VIEW
-========================= */
-
-@media (max-width: 1000px) {
-
-  .storyContainer {
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding: 10px !important;
-  }
-
-  .post {
+@media (max-width:1000px) {
+  .post{
     position: relative !important;
-    right: 30px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .post-profile {
-    width: 35px;
-    height: 35px;
-  }
-
-  .icon-box {
-    margin-right: 8px;
-  }
-
-  .icons {
-    position: absolute;
-    font-size: 22px !important;
-  }
-
-  .pop-icons {
-    display: none;
-  }
-
-  .story-container {
-    width: 100%;
-    overflow-x: auto;
+    right: 210px !important;
   }
 }
 /* =========================
@@ -540,6 +503,6 @@
 }
 
 .privPost{
-   max-width: 100%;
+  max-width: 100%; 
   overflow-x: hidden !important;
 }
