@@ -154,7 +154,7 @@ const [menuOpen,setMenuOpen]=useState(null)
   };
 
   const handleDelete = (id) => {
-    fetch(`https://instagram-project-oybk.onrender.com/${id}`, {
+    fetch(`https://instagram-project-oybk.onrender.com/posts/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
