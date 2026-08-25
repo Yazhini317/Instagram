@@ -341,7 +341,7 @@ body,
     position: relative;
     width: 100%;
     right: 100px !important;
-    overflow-x: auto;
+    overflow-x: auto !important;
   }
 }
 

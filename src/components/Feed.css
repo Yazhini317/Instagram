@@ -412,6 +412,10 @@
     position: relative !important;
     right: 210px !important;
   }
+  .story{
+    position: relative;
+    left: 100px !important;
+  }
 }
 /* =========================
    THREE DOT DROPDOWN
