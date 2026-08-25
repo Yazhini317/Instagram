@@ -12,6 +12,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { OrbitProgress } from "react-loading-indicators";
 import "./Feed.css";
+import './SavedPost.css'
 import { IoIosClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { addSaved, removeSaved } from "./Store/SavedSlice";
