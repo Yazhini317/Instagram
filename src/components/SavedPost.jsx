@@ -88,7 +88,7 @@ const SavedPost = () => {
                             </span>
                             {!saved.user.following && (
                               <div className="post-follow d-flex ms-auto">
-                                <Button style={{ fontSize: "10px" }} className="pe-2 ps-2">
+                                <Button style={{ fontSize: "10px" }} className="">
                                   Follow
                                 </Button>
                               </div>
