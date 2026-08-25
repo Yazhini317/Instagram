@@ -274,7 +274,7 @@ const [menuOpen,setMenuOpen]=useState(null)
                 </span>
 
                 {!posts.user.following && (
-                  <div className="story-follow d-flex ms-auto">
+                  <div className="story-follow d-flex">
                     <Button
                       style={{ fontSize: "10px" }}
                       className="pe-2 ps-2"
