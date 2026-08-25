@@ -239,18 +239,20 @@ body,
 @media (max-width: 1000px) {
 
   .profile {
-    width: 100%;
+    display: flex;
+    justify-content: center;
     min-height: 100vh;
-    padding-bottom: 80px;
-    display: block;
+    padding-bottom: 100px;
+    width: 100%;
   }
 
-  /* ================= TOP BAR ================= */
+  /* ---------- TOP BAR ---------- */
 
   .profile-top {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 60px;
 
@@ -262,12 +264,12 @@ body,
   }
 
   .profile-mobile-icons {
-    width: 100%;
-    padding: 0 15px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    width: 100%;
+    padding: 0 20px;
   }
 
   .profile-settings,
@@ -276,117 +278,123 @@ body,
     align-items: center;
   }
 
-  /* ================= PROFILE CONTAINER ================= */
+  /* ---------- PROFILE ---------- */
 
   .profile-container {
-    width: 100%;
-    margin: 80px 0 0 0;
-    padding: 0 15px;
+    display: flex;
 
-    display: block;
+    margin-top: 100px;
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+
+    width: 100%;
   }
 
-  /* ================= PROFILE IMAGE + INFO ================= */
-
   .profilepage {
-    width: 100%;
-
     display: grid;
-    grid-template-columns: 90px 1fr;
+
+    grid-template-columns: 80px 1fr;
 
     column-gap: 20px;
+    row-gap: 10px;
+
     align-items: start;
   }
 
-  .profile-img {
-    grid-column: 1;
-    grid-row: 1;
+  /* ---------- PROFILE IMAGE ---------- */
 
+  .profile-img {
     width: 80px;
     height: 80px;
 
-    margin: 0;
     object-fit: cover;
+
+    margin: 0;
+    margin-top: 50px;
+
+    grid-column: 1;
+    grid-row: 1;
   }
 
+  /* ---------- USERNAME + STATS ---------- */
+
   .profile-info {
+    padding-top: 0;
+
     grid-column: 2;
     grid-row: 1;
 
-    width: 100%;
-    padding: 0;
-    margin: 0 !important;
+    margin-right: 10px !important;
   }
-
-  /* ================= USERNAME ================= */
 
   .profile-name-row {
     display: flex;
     align-items: center;
     gap: 8px;
-
-    width: 100%;
   }
 
   .prof-name {
     margin: 0;
-    font-size: 20px;
-    white-space: nowrap;
+    font-size: 25px;
   }
 
   .profile-settings-desktop {
     display: none;
   }
 
-  /* ================= NAME ================= */
+  /* ---------- NAME ---------- */
 
   .name {
-    margin-top: 5px;
+    grid-column: 1 / 3;
+
+    margin-top: 0;
+
     font-size: 14px;
   }
 
-  /* ================= STATS ================= */
+  /* ---------- STATS ---------- */
 
   .profile-stats {
     display: flex;
-    align-items: center;
 
-    gap: 12px;
+    gap: 15px;
 
-    margin-top: 12px;
+    margin: 15px 0 0 0;
 
     font-size: 13px;
+
     white-space: nowrap;
   }
 
-  /* ================= BIO ================= */
-
-  .profile-info > p {
-    margin-top: 15px;
-    margin-bottom: 0;
-    font-size: 14px;
-  }
-
-  /* ================= BUTTONS ================= */
+  /* ---------- BUTTONS ---------- */
 
   .button-container {
-    grid-column: 1 / 3;
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 10px;
 
     width: 100%;
 
-    display: flex;
-    gap: 8px;
-
-    margin: 25px 0 0 0;
-    padding: 0 !important;
+    margin-top: 50px;
+    margin-left: 0;
 
     transform: none;
+
+    padding: 20px 0 !important;
+
+    position: static;
   }
 
   .EditButton,
   .archiveButton {
-    width: 50%;
-    height: 36px;
+    width: calc(80% - 45px);
+
+    height: 35px;
 
     border: none;
     border-radius: 8px;
@@ -394,72 +402,84 @@ body,
     background-color: #efefef;
 
     font-size: 14px;
+
+    cursor: pointer;
   }
 
-  /* ================= NEW HIGHLIGHT ================= */
+  /* ---------- NEW HIGHLIGHT ---------- */
 
   .new-highlight {
-    margin-top: 25px;
-    margin-left: 0;
+    margin-top: 0;
+    margin-left: 15px;
+
+    position: static !important;
 
     transform: none;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .plus-icon {
-    width: 75px;
-    height: 75px;
+    width: 86px;
+    height: 86px;
+
+    color: #bfc3c644;
+
+    border-radius: 50%;
   }
 
   .new-text {
-    width: 75px;
     margin-top: 5px;
 
-    text-align: center;
-    font-size: 13px;
+    font-size: 14px;
+
+    color: #111;
   }
 
-  /* ================= TABS ================= */
+  /* ---------- TABS ---------- */
 
   .profile-tabs {
-    width: 100%;
-    height: 55px;
+    position: static;
 
-    margin-top: 25px !important;
+    transform: none;
+
+    margin-top: 40px !important;
+
+    width: 100%;
+
+    height: 55px;
 
     display: flex;
 
-    transform: none;
+    overflow: visible;
 
     border-bottom: 1px solid #dbdbdb;
   }
 
   .tab {
     width: 33.33%;
+
     height: 55px;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
-    font-size: 25px;
+    font-size: 26px;
 
-    color: #999;
+    overflow: visible;
   }
 
-  .tab.active {
-    color: #111;
-  }
-
-  /* ================= POST GRID ================= */
+  /* ---------- GRID ---------- */
 
   .menutab {
     width: 100%;
 
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
 
     gap: 3px;
@@ -469,7 +489,9 @@ body,
 
   .menutab > div {
     width: 100%;
+
     aspect-ratio: 1 / 1;
+
     overflow: hidden;
   }
 
@@ -478,9 +500,67 @@ body,
     height: 100%;
 
     object-fit: cover;
+
     display: block;
   }
 
+  /* ---------- NO POSTS ---------- */
+
+  .camera {
+    font-size: 40px;
+
+    color: #474444;
+
+    width: 70px;
+    height: 70px;
+
+    padding: 10px;
+
+    background-color: transparent;
+
+    border: 1px solid #474444;
+
+    border-radius: 50%;
+
+    margin: 40px;
+
+    display: flex;
+
+    transform: none;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sharephotos {
+    margin-right: 0 !important;
+    transform: none;
+  }
+
+  .parashare {
+    margin-right: 0 !important;
+  }
+
+  .headshare {
+    margin-right: 0 !important;
+    cursor: pointer;
+  }
+
+  /* ---------- PAPER ---------- */
+
+  .paper {
+    position: fixed;
+
+    bottom: 0;
+    right: 0;
+
+    margin-bottom: 10px !important;
+    margin-right: 50px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .sidebar-dropdown .dropdown-menu.show {
