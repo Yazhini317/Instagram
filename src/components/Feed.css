@@ -407,10 +407,46 @@
 }
 
 
-@media (max-width:1000px) {
-  .post{
+/* =========================
+   MOBILE VIEW
+========================= */
+
+@media (max-width: 600px) {
+
+  .storyContainer {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 10px !important;
+  }
+
+  .post {
     position: relative !important;
-    right: 210px !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .post-profile {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-box {
+    margin-right: 8px;
+  }
+
+  .icons {
+    font-size: 22px !important;
+  }
+
+  .pop-icons {
+    display: none;
+  }
+
+  .story-container {
+    width: 100%;
+    overflow-x: auto;
   }
 }
 /* =========================

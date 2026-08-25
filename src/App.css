@@ -321,15 +321,7 @@ body,
     justify-self: start;
   }
 
-  /* Move profile + username section left */
-.post-profile {
-  margin-right: 0 !important;
-}
-
-/* Move icons section left */
-.icons {
-  margin-right: 0 !important;
-}
+  
 
   .popup-text {
     display: none;
