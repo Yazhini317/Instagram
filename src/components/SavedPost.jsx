@@ -68,7 +68,7 @@ const SavedPost = () => {
            
                         <div
                           key={saved.id}
-                          className="d-flex flex-column align-items-start p-3 ms-3 gap-2 postContainer"
+                          className=" postContainer"
                         >
                           <div className="d-flex post gap-2 align-items-center">
                             <img 
