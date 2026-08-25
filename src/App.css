@@ -323,12 +323,12 @@ body,
 
   /* Move profile + username section left */
 .post-profile {
-  transform: translateX(-60px);
+  margin-left: 0 !important;
 }
 
 /* Move icons section left */
 .icons {
-  transform: translateX(-60px);
+  margin-left: 0 !important;
 }
 
   .popup-text {
