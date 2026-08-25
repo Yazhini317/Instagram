@@ -70,7 +70,7 @@ const SavedPost = () => {
                           key={saved.id}
                           className=" postContainer"
                         >
-                          <div className="d-flex post gap-2 align-items-center">
+                          <div className="post">
                             <img 
                               src={saved.user.profileImage}
                               className="rounded-circle"
