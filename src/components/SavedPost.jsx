@@ -68,10 +68,10 @@ const SavedPost = () => {
            
                         <div
                           key={saved.id}
-                          className="d-flex  align-items-start p-3 ms-3 gap-2 postContainer"
+                          className="d-flex flex-column align-items-start p-3 ms-3 gap-2 postContainer"
                         >
                           <div className="d-flex post gap-2 align-items-center">
-                            <img
+                            <img 
                               src={saved.user.profileImage}
                               className="rounded-circle"
                               alt=""
