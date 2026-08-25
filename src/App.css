@@ -238,56 +238,132 @@ body,
 
 @media (max-width: 1000px) {
 
-  .text-dark {
-    width: fit-content;
-    margin-right: auto;
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
   }
 
-  .text-dark:hover {
-    background-color: transparent;
+  /* =========================
+     MOBILE FEED
+  ========================= */
+
+  .feed {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 60px !important;
+    overflow-x: hidden !important;
   }
 
-  .sidebar-dropdown .dropdown-toggle::after {
-    display: none !important;
+  .postContainer {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
+
+  /* POST */
+  .post {
+    position: relative !important;
+    right: auto !important;
+    left: 0 !important;
+
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* =========================
+     POST IMAGE
+  ========================= */
+
+  .post img {
+    max-width: 100%;
+  }
+
+  /* =========================
+     STORIES
+  ========================= */
+
+  .story {
+    position: relative !important;
+    right: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .story-container {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  /* STORY ARROWS - MAKE VISIBLE */
+  .story-arrow,
+  .story-arrow-left {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    z-index: 9999 !important;
+  }
+
+  .story-arrow {
+    right: 5px !important;
+  }
+
+  .story-arrow-left {
+    left: 5px !important;
+  }
+
+  /* =========================
+     PRIVATE POSTS
+  ========================= */
+
+  .privPost {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  /* =========================
+     BOTTOM NAV
+  ========================= */
 
   .sidebar {
     width: 100% !important;
     height: 50px !important;
     bottom: 0 !important;
     left: 0 !important;
-    background-color: whitesmoke;
-    transition: none;
   }
 
   .sidebar .bottom-nav {
     display: none !important;
   }
+
   .sidebar .container {
     height: 60px !important;
-    flex-direction: row !important;
     min-height: 60px !important;
-    padding: 0 !important;
-    width: 80%;
-  }
-
-  .sidebar .navbar-brand {
-    position: fixed;
-    top: 0px !important;
-    left: 0px !important;
-    height: 60px !important;
     width: 100% !important;
-    padding-left: 20px !important;
-    padding-top: 10px !important;
-  }
-
-
-  .nav .heart {
-    position: fixed;
-    top: 0px !important;
-    right: 0px !important;
-    padding-top: 10px !important;
-    background-color: transparent;
+    padding: 0 !important;
+    flex-direction: row !important;
   }
 
   .sidebar .nav {
@@ -295,51 +371,40 @@ body,
     width: 100% !important;
     justify-content: space-evenly !important;
     align-items: center !important;
-    background-color: transparent;
-    min-height: 60px;
   }
 
   .sidebar .nav img {
     width: 30px !important;
     height: 30px !important;
-    border-radius: 50%;
+  }
+
+  /* =========================
+     MOBILE HEADER
+  ========================= */
+
+  .sidebar .navbar-brand {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    padding-left: 20px !important;
+    padding-top: 10px !important;
+  }
+
+  .nav .heart {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    padding-top: 10px !important;
   }
 
   .suggestions {
     display: none !important;
   }
 
-  .feed {
-    width: 100% !important;
-    margin-top: 60px !important;
-    min-width: 100% !important;
-  }
-
-  .postContainer {
-    display: flex;
-    flex-direction: column;
-    justify-self: start;
-  }
-
   .popup-text {
     display: none;
-    background-color: white;
-    color: black;
-    padding: 5px 10px;
-    position: absolute;
-    bottom: 0px;
-    margin-left: 40px;
-  }
-
-  .sidebar .nav .text-dark:hover .popup-text {
-    display: block;
-  }
-
-  .story {
-    position: relative;
-    width: 100%;
-    right: 100px !important;
-    overflow-x: auto;
   }
 }
 
