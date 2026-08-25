@@ -158,7 +158,7 @@ useEffect(() => {
       .filter((savepost) => savepost && savepost.postImage)
       .map((savepost) =>{
     return(
-       <div key={savepost.id}>
+       <div key={savepost.id} className="menutab">
       <img src={savepost.postImage} className="post " onClick={()=>{navigate('/SavedPost')}}/>
       </div>
     )
