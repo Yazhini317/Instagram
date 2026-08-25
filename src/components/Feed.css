@@ -437,6 +437,7 @@
   }
 
   .icons {
+    position: fixed;
     font-size: 22px !important;
   }
 
