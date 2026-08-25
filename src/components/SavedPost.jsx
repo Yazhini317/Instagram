@@ -88,13 +88,13 @@ const SavedPost = () => {
                               )}
                             </span>
                             {!saved.user.following && (
-                              <div className="post-follow d-flex ms-auto">
+                              <div className="post-follow">
                                 <Button style={{ fontSize: "10px" }} className="">
                                   Follow
                                 </Button>
                               </div>
                             )}
-                            <div className="ms-auto">{<IoIosMore size={25} />}</div>
+                            <div className="more-btn">{<IoIosMore size={25} />}</div>
                           </div>
                           <img src={saved.postImage} className="post " alt="" />
             
