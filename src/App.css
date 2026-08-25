@@ -238,89 +238,53 @@ body,
 
 @media (max-width: 1000px) {
 
-  html,
-  body,
-  #root {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden !important;
-  }
-
-  /* =========================
-     MOBILE FEED
-  ========================= */
-
+  /* Feed stays centered/aligned */
   .feed {
     width: 100% !important;
     min-width: 0 !important;
     margin-top: 60px !important;
-    overflow-x: hidden !important;
   }
 
+  /* Story - don't move it left */
+  .story {
+    position: relative;
+    width: 100% !important;
+    right: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Story horizontal scrolling */
+  .story-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+  }
+
+  /* Post alignment */
   .postContainer {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    align-items: center !important;
   }
 
-  /* POST */
   .post {
-    position: relative !important;
-    right: auto !important;
-    left: 0 !important;
-
     width: 300px !important;
     min-width: 300px !important;
-    max-width: 300px !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    right: auto !important;
   }
 
-  /* =========================
-     POST IMAGE
-  ========================= */
-
-  .post img {
-    max-width: 100%;
+  /* Keep post icons aligned with post */
+  .post .icons {
+    margin-left: 7px !important;
   }
 
-  /* =========================
-     STORIES
-  ========================= */
-
-  .story {
-    position: relative !important;
-    right: 0 !important;
-    left: 0 !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .story-container {
-    width: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-  }
-
-  /* STORY ARROWS - MAKE VISIBLE */
+  /* Story arrows visible */
   .story-arrow,
   .story-arrow-left {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-
     z-index: 9999 !important;
   }
 
@@ -330,81 +294,6 @@ body,
 
   .story-arrow-left {
     left: 5px !important;
-  }
-
-  /* =========================
-     PRIVATE POSTS
-  ========================= */
-
-  .privPost {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-  }
-
-  /* =========================
-     BOTTOM NAV
-  ========================= */
-
-  .sidebar {
-    width: 100% !important;
-    height: 50px !important;
-    bottom: 0 !important;
-    left: 0 !important;
-  }
-
-  .sidebar .bottom-nav {
-    display: none !important;
-  }
-
-  .sidebar .container {
-    height: 60px !important;
-    min-height: 60px !important;
-    width: 100% !important;
-    padding: 0 !important;
-    flex-direction: row !important;
-  }
-
-  .sidebar .nav {
-    flex-direction: row !important;
-    width: 100% !important;
-    justify-content: space-evenly !important;
-    align-items: center !important;
-  }
-
-  .sidebar .nav img {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
-  /* =========================
-     MOBILE HEADER
-  ========================= */
-
-  .sidebar .navbar-brand {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 60px !important;
-    padding-left: 20px !important;
-    padding-top: 10px !important;
-  }
-
-  .nav .heart {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    padding-top: 10px !important;
-  }
-
-  .suggestions {
-    display: none !important;
-  }
-
-  .popup-text {
-    display: none;
   }
 }
 
