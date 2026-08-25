@@ -284,7 +284,7 @@ const [menuOpen,setMenuOpen]=useState(null)
                   </div>
                 )}
 
-                <Nav className="ms-auto sidebar-dropdown">
+                <Nav className="sidebar-dropdown">
   <NavDropdown
     title={
       <IoIosMore

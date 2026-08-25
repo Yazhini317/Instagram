@@ -481,7 +481,9 @@
   z-index: 1000000 !important;
 } 
 .story-follow {
- width: auto;
-  margin-left: 10px !important;
-  margin-right: 10px !important;
+  margin-left: auto !important;
+}
+
+.sidebar-dropdown {
+  margin-left: 5px !important;
 }
