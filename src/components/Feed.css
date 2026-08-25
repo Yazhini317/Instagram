@@ -480,22 +480,3 @@
   position: relative !important;
   z-index: 1000000 !important;
 } 
-.saved-post-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-  padding: 20px;
-}
-
-.postContainer {
-  width: 100%;
-}
-
-.post {
-  position: relative;
-  display: flex;
-  width: 300px;
-  min-width: 300px;
-  flex-shrink: 0;
-}
